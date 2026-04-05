@@ -1,0 +1,150 @@
+[
+  {
+    "state": "TX",
+    "slug": "texas",
+    "cities": [
+      "San Antonio",
+      "Dallas",
+      "Fort Worth",
+      "Houston",
+      "Austin",
+      "El Paso",
+      "Arlington",
+      "Plano"
+    ],
+    "count": 616
+  },
+  {
+    "state": "FL",
+    "slug": "florida",
+    "cities": [
+      "Jacksonville",
+      "Tampa",
+      "Orlando",
+      "Miami",
+      "St. Petersburg",
+      "Fort Myers",
+      "Cape Coral",
+      "Tallahassee"
+    ],
+    "count": 566
+  },
+  {
+    "state": "NC",
+    "slug": "north-carolina",
+    "cities": [
+      "Charlotte",
+      "Raleigh",
+      "Wilmington",
+      "Durham",
+      "Greensboro"
+    ],
+    "count": 343
+  },
+  {
+    "state": "GA",
+    "slug": "georgia",
+    "cities": [
+      "Atlanta",
+      "Savannah",
+      "Augusta",
+      "Columbus"
+    ],
+    "count": 252
+  },
+  {
+    "state": "AZ",
+    "slug": "arizona",
+    "cities": [
+      "Phoenix",
+      "Tucson",
+      "Mesa",
+      "Chandler",
+      "Scottsdale"
+    ],
+    "count": 329
+  },
+  {
+    "state": "TN",
+    "slug": "tennessee",
+    "cities": [
+      "Nashville",
+      "Memphis",
+      "Knoxville",
+      "Chattanooga",
+      "Clarksville"
+    ],
+    "count": 310
+  },
+  {
+    "state": "OK",
+    "slug": "oklahoma",
+    "cities": [
+      "Oklahoma City",
+      "Tulsa"
+    ],
+    "count": 156
+  },
+  {
+    "state": "CO",
+    "slug": "colorado",
+    "cities": [
+      "Denver",
+      "Colorado Springs"
+    ],
+    "count": 139
+  },
+  {
+    "state": "NV",
+    "slug": "nevada",
+    "cities": [
+      "Las Vegas",
+      "Henderson"
+    ],
+    "count": 107
+  },
+  {
+    "state": "AL",
+    "slug": "alabama",
+    "cities": [
+      "Birmingham",
+      "Mobile"
+    ],
+    "count": 111
+  },
+  {
+    "state": "LA",
+    "slug": "louisiana",
+    "cities": [
+      "New Orleans",
+      "Baton Rouge"
+    ],
+    "count": 124
+  },
+  {
+    "state": "SC",
+    "slug": "south-carolina",
+    "cities": [
+      "Columbia",
+      "Charleston"
+    ],
+    "count": 125
+  },
+  {
+    "state": "VA",
+    "slug": "virginia",
+    "cities": [
+      "Richmond",
+      "Virginia Beach"
+    ],
+    "count": 139
+  },
+  {
+    "state": "MO",
+    "slug": "missouri",
+    "cities": [
+      "Kansas City"
+    ],
+    "count": 71
+  }
+]
