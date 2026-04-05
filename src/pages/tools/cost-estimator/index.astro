@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How much does a roof replacement cost in 2026?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The average roof replacement costs between $5,500 and $12,000 for asphalt shingles on a typical 1,500 sq ft home. Metal roofing ranges from $10,000 to $25,000, while tile and slate can exceed $30,000.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What factors affect roofing costs?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Key factors include roof size (square footage), material type, roof pitch and complexity, your geographic location, whether it is a repair or full replacement, and whether old materials need to be removed.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does metal roofing cost per square foot?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Metal roofing typically costs $7 to $15 per square foot installed, depending on the metal type. Standing seam metal costs $10 to $16 per sq ft, while corrugated metal panels cost $5 to $10 per sq ft.' }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Roofing Cost Estimator 2026 | Calculate Your Roof Replacement Cost | TopRoofers"
+  description="Estimate your roof replacement cost by material, size, and location. Free interactive calculator with 2026 pricing data for asphalt, metal, tile, and slate roofing."
+  schema={schema}
+>
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <BreadcrumbNav crumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Tools', href: '/tools/cost-estimator/' },
+      { label: 'Cost Estimator', href: '/tools/cost-estimator/' },
+    ]} />
+
+    <h1 class="text-3xl font-bold text-brand-navy mb-2">Roofing Cost Estimator</h1>
+    <p class="text-brand-muted mb-8">Get an instant estimate for your roof replacement based on material, size, and location. Updated with 2026 pricing data.</p>
+
+    <!-- Estimator Tool -->
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Inputs -->
+        <div class="space-y-5">
+          <div>
+            <label class="block text-sm font-semibold text-brand-navy mb-2">Roofing Material</label>
+            <select id="material" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-brand-navy focus:border-brand-accent outline-none">
+              <option value="asphalt">Asphalt Shingles (Most Common)</option>
+              <option value="metal-standing">Standing Seam Metal</option>
+              <option value="metal-corrugated">Corrugated Metal</option>
+              <option value="tile-concrete">Concrete Tile</option>
+              <option value="tile-clay">Clay Tile</option>
+              <option value="slate">Natural Slate</option>
+              <option value="wood">Wood Shake</option>
+              <option value="flat-tpo">Flat Roof (TPO/EPDM)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-brand-navy mb-2">Roof Size (square feet)</label>
+            <input type="number" id="sqft" value="1500" min="500" max="10000" step="100" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-brand-navy focus:border-brand-accent outline-none" />
+            <div class="flex gap-2 mt-2">
+              <button data-sqft="1000" class="sqft-btn text-xs px-3 py-1 rounded-full bg-slate-100 hover:bg-brand-accent/20 transition">1,000</button>
+              <button data-sqft="1500" class="sqft-btn text-xs px-3 py-1 rounded-full bg-brand-accent/20 font-medium">1,500</button>
+              <button data-sqft="2000" class="sqft-btn text-xs px-3 py-1 rounded-full bg-slate-100 hover:bg-brand-accent/20 transition">2,000</button>
+              <button data-sqft="3000" class="sqft-btn text-xs px-3 py-1 rounded-full bg-slate-100 hover:bg-brand-accent/20 transition">3,000</button>
+              <button data-sqft="5000" class="sqft-btn text-xs px-3 py-1 rounded-full bg-slate-100 hover:bg-brand-accent/20 transition">5,000</button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-brand-navy mb-2">Roof Complexity</label>
+            <select id="complexity" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-brand-navy focus:border-brand-accent outline-none">
+              <option value="simple">Simple (few slopes, no dormers)</option>
+              <option value="moderate" selected>Moderate (some valleys/hips)</option>
+              <option value="complex">Complex (steep pitch, dormers, skylights)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-brand-navy mb-2">Region</label>
+            <select id="region" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-brand-navy focus:border-brand-accent outline-none">
+              <option value="southeast">Southeast (FL, GA, SC, NC, AL, TN)</option>
+              <option value="southwest">Southwest (TX, AZ, NM, NV)</option>
+              <option value="midwest" selected>Midwest (OH, MI, IN, IL, WI, MN)</option>
+              <option value="northeast">Northeast (NY, NJ, PA, MA, CT)</option>
+              <option value="west">West Coast (CA, WA, OR)</option>
+              <option value="mountain">Mountain (CO, UT, MT, ID)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="bg-gradient-to-br from-brand-navy to-brand-dark rounded-xl p-6 text-white flex flex-col justify-between">
+          <div>
+            <p class="text-sm text-slate-400 mb-1">Estimated Cost Range</p>
+            <div id="cost-range" class="text-3xl font-bold text-brand-accent mb-4">$5,250 - $8,250</div>
+
+            <div class="space-y-3 text-sm">
+              <div class="flex justify-between border-b border-white/10 pb-2">
+                <span class="text-slate-400">Material cost/sq ft</span>
+                <span id="cost-per-sqft" class="font-medium">$3.50 - $5.50</span>
+              </div>
+              <div class="flex justify-between border-b border-white/10 pb-2">
+                <span class="text-slate-400">Roof size</span>
+                <span id="display-sqft" class="font-medium">1,500 sq ft</span>
+              </div>
+              <div class="flex justify-between border-b border-white/10 pb-2">
+                <span class="text-slate-400">Complexity adjustment</span>
+                <span id="display-complexity" class="font-medium">+0%</span>
+              </div>
+              <div class="flex justify-between border-b border-white/10 pb-2">
+                <span class="text-slate-400">Regional adjustment</span>
+                <span id="display-region" class="font-medium">+0%</span>
+              </div>
+              <div class="flex justify-between pt-1">
+                <span class="text-slate-400">Avg lifespan</span>
+                <span id="display-lifespan" class="font-medium">20-30 years</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="/states/" class="block mt-6 bg-brand-accent text-brand-navy text-center py-3 rounded-lg font-semibold hover:bg-brand-accent-light transition">
+            Get Exact Quotes From Local Roofers
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Material Comparison Table -->
+    <div class="mt-12">
+      <h2 class="text-2xl font-bold text-brand-navy mb-6">Roofing Material Cost Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full bg-white rounded-xl shadow-sm border border-slate-200">
+          <thead>
+            <tr class="border-b border-slate-200">
+              <th class="text-left px-4 py-3 text-sm font-semibold text-brand-navy">Material</th>
+              <th class="text-left px-4 py-3 text-sm font-semibold text-brand-navy">Cost per Sq Ft</th>
+              <th class="text-left px-4 py-3 text-sm font-semibold text-brand-navy">1,500 Sq Ft Roof</th>
+              <th class="text-left px-4 py-3 text-sm font-semibold text-brand-navy">Lifespan</th>
+              <th class="text-left px-4 py-3 text-sm font-semibold text-brand-navy">Best For</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-sm">
+            <tr><td class="px-4 py-3 font-medium">Asphalt Shingles</td><td class="px-4 py-3">$3.50 - $5.50</td><td class="px-4 py-3">$5,250 - $8,250</td><td class="px-4 py-3">20-30 years</td><td class="px-4 py-3">Budget-friendly, most homes</td></tr>
+            <tr><td class="px-4 py-3 font-medium">Standing Seam Metal</td><td class="px-4 py-3">$10 - $16</td><td class="px-4 py-3">$15,000 - $24,000</td><td class="px-4 py-3">40-70 years</td><td class="px-4 py-3">Durability, energy efficiency</td></tr>
+            <tr><td class="px-4 py-3 font-medium">Corrugated Metal</td><td class="px-4 py-3">$5 - $10</td><td class="px-4 py-3">$7,500 - $15,000</td><td class="px-4 py-3">30-50 years</td><td class="px-4 py-3">Barns, workshops, budget metal</td></tr>
+            <tr><td class="px-4 py-3 font-medium">Concrete Tile</td><td class="px-4 py-3">$8 - $14</td><td class="px-4 py-3">$12,000 - $21,000</td><td class="px-4 py-3">50+ years</td><td class="px-4 py-3">Southwest style, durability</td></tr>
+            <tr><td class="px-4 py-3 font-medium">Clay Tile</td><td class="px-4 py-3">$12 - $25</td><td class="px-4 py-3">$18,000 - $37,500</td><td class="px-4 py-3">75-100 years</td><td class="px-4 py-3">Mediterranean, luxury homes</td></tr>
+            <tr><td class="px-4 py-3 font-medium">Natural Slate</td><td class="px-4 py-3">$15 - $30</td><td class="px-4 py-3">$22,500 - $45,000</td><td class="px-4 py-3">100+ years</td><td class="px-4 py-3">Historic homes, premium look</td></tr>
+            <tr><td class="px-4 py-3 font-medium">Wood Shake</td><td class="px-4 py-3">$8 - $14</td><td class="px-4 py-3">$12,000 - $21,000</td><td class="px-4 py-3">20-40 years</td><td class="px-4 py-3">Rustic aesthetic</td></tr>
+            <tr><td class="px-4 py-3 font-medium">Flat (TPO/EPDM)</td><td class="px-4 py-3">$4 - $8</td><td class="px-4 py-3">$6,000 - $12,000</td><td class="px-4 py-3">15-30 years</td><td class="px-4 py-3">Commercial, flat roofs</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="mt-12">
+      <h2 class="text-2xl font-bold text-brand-navy mb-6">Common Cost Questions</h2>
+      <div class="space-y-4">
+        <details class="bg-white rounded-xl border border-slate-200 group" open>
+          <summary class="px-6 py-4 cursor-pointer font-semibold text-brand-navy hover:text-brand-accent transition flex items-center justify-between">
+            How much does a roof replacement cost in 2026?
+            <svg class="w-5 h-5 text-brand-muted group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-4 text-sm text-brand-muted">The average roof replacement costs between $5,500 and $12,000 for asphalt shingles on a typical 1,500 sq ft home. Metal roofing ranges from $10,000 to $25,000, while tile and slate can exceed $30,000. Costs vary significantly by region, with Northeast and West Coast markets running 10-20% higher than the national average.</div>
+        </details>
+        <details class="bg-white rounded-xl border border-slate-200 group">
+          <summary class="px-6 py-4 cursor-pointer font-semibold text-brand-navy hover:text-brand-accent transition flex items-center justify-between">
+            What factors affect roofing costs the most?
+            <svg class="w-5 h-5 text-brand-muted group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-4 text-sm text-brand-muted">The biggest cost factors are: (1) material type - slate costs 5-6x more than asphalt, (2) roof size in square feet, (3) roof complexity - dormers, valleys, and steep pitches increase labor costs 15-35%, (4) geographic location - labor rates vary by region, (5) removal of existing materials - adding $1-2 per sq ft, and (6) structural repairs found during replacement.</div>
+        </details>
+        <details class="bg-white rounded-xl border border-slate-200 group">
+          <summary class="px-6 py-4 cursor-pointer font-semibold text-brand-navy hover:text-brand-accent transition flex items-center justify-between">
+            Is metal roofing worth the extra cost?
+            <svg class="w-5 h-5 text-brand-muted group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-4 text-sm text-brand-muted">Metal roofing costs 2-3x more upfront but lasts 2-3x longer (40-70 years vs 20-30 for asphalt). It also reduces energy bills by 10-25% through heat reflection, increases home value, and handles severe weather better. If you plan to stay in your home long-term, metal roofing usually has a lower cost per year of service than asphalt.</div>
+        </details>
+        <details class="bg-white rounded-xl border border-slate-200 group">
+          <summary class="px-6 py-4 cursor-pointer font-semibold text-brand-navy hover:text-brand-accent transition flex items-center justify-between">
+            Should I repair or replace my roof?
+            <svg class="w-5 h-5 text-brand-muted group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-4 text-sm text-brand-muted">General rule: if the repair costs more than 30% of a full replacement, or if your roof is past 80% of its expected lifespan, replacement is usually the better investment. Minor repairs (a few missing shingles, small leak) are worth doing. But widespread damage, sagging, or multiple leak points typically mean it is time for a full replacement.</div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const MATERIALS = {
+      'asphalt':          { low: 3.5,  high: 5.5,  lifespan: '20-30 years' },
+      'metal-standing':   { low: 10,   high: 16,   lifespan: '40-70 years' },
+      'metal-corrugated': { low: 5,    high: 10,   lifespan: '30-50 years' },
+      'tile-concrete':    { low: 8,    high: 14,   lifespan: '50+ years' },
+      'tile-clay':        { low: 12,   high: 25,   lifespan: '75-100 years' },
+      'slate':            { low: 15,   high: 30,   lifespan: '100+ years' },
+      'wood':             { low: 8,    high: 14,   lifespan: '20-40 years' },
+      'flat-tpo':         { low: 4,    high: 8,    lifespan: '15-30 years' },
+    };
+    const COMPLEXITY = { simple: -0.1, moderate: 0, complex: 0.25 };
+    const REGION = { southeast: -0.05, southwest: 0, midwest: 0, northeast: 0.15, west: 0.2, mountain: 0.05 };
+
+    function calc() {
+      const mat = document.getElementById('material').value;
+      const sqft = parseInt(document.getElementById('sqft').value) || 1500;
+      const comp = document.getElementById('complexity').value;
+      const reg = document.getElementById('region').value;
+      const m = MATERIALS[mat];
+      const cMult = 1 + COMPLEXITY[comp];
+      const rMult = 1 + REGION[reg];
+      const low = Math.round(m.low * sqft * cMult * rMult);
+      const high = Math.round(m.high * sqft * cMult * rMult);
+      document.getElementById('cost-range').textContent = '$' + low.toLocaleString() + ' - $' + high.toLocaleString();
+      document.getElementById('cost-per-sqft').textContent = '$' + m.low.toFixed(2) + ' - $' + m.high.toFixed(2);
+      document.getElementById('display-sqft').textContent = sqft.toLocaleString() + ' sq ft';
+      document.getElementById('display-complexity').textContent = (COMPLEXITY[comp] >= 0 ? '+' : '') + Math.round(COMPLEXITY[comp]*100) + '%';
+      document.getElementById('display-region').textContent = (REGION[reg] >= 0 ? '+' : '') + Math.round(REGION[reg]*100) + '%';
+      document.getElementById('display-lifespan').textContent = m.lifespan;
+    }
+
+    document.getElementById('material').addEventListener('change', calc);
+    document.getElementById('sqft').addEventListener('input', calc);
+    document.getElementById('complexity').addEventListener('change', calc);
+    document.getElementById('region').addEventListener('change', calc);
+    document.querySelectorAll('.sqft-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('sqft').value = btn.dataset.sqft;
+        document.querySelectorAll('.sqft-btn').forEach(b => { b.className = 'sqft-btn text-xs px-3 py-1 rounded-full bg-slate-100 hover:bg-brand-accent/20 transition'; });
+        btn.className = 'sqft-btn text-xs px-3 py-1 rounded-full bg-brand-accent/20 font-medium';
+        calc();
+      });
+    });
+    calc();
+  </script>
+</BaseLayout>

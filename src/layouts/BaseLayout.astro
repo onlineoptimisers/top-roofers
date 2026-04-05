@@ -43,6 +43,8 @@ const currentPath = Astro.url.pathname;
 
       <div class="hidden md:flex items-center gap-6 text-sm">
         <a href="/states/" class={`hover:text-brand-accent transition ${currentPath.startsWith('/states') ? 'text-brand-accent' : ''}`}>Browse States</a>
+        <a href="/services/" class={`hover:text-brand-accent transition ${currentPath.startsWith('/services') ? 'text-brand-accent' : ''}`}>Services</a>
+        <a href="/tools/cost-estimator/" class={`hover:text-brand-accent transition ${currentPath.startsWith('/tools') ? 'text-brand-accent' : ''}`}>Cost Estimator</a>
         <a href="/blog/" class={`hover:text-brand-accent transition ${currentPath.startsWith('/blog') ? 'text-brand-accent' : ''}`}>Guides</a>
         <a href="/claim/" class="bg-brand-accent text-brand-navy px-4 py-2 rounded-lg font-semibold hover:bg-brand-accent-light transition">Claim Listing</a>
       </div>
@@ -58,6 +60,8 @@ const currentPath = Astro.url.pathname;
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-brand-dark px-4 pb-4">
       <a href="/states/" class="block py-2 text-sm hover:text-brand-accent">Browse States</a>
+      <a href="/services/" class="block py-2 text-sm hover:text-brand-accent">Services</a>
+      <a href="/tools/cost-estimator/" class="block py-2 text-sm hover:text-brand-accent">Cost Estimator</a>
       <a href="/blog/" class="block py-2 text-sm hover:text-brand-accent">Guides</a>
       <a href="/claim/" class="block py-2 text-sm text-brand-accent font-semibold">Claim Your Listing</a>
     </div>

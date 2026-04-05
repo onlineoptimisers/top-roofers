@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import { SERVICES } from '../../lib/services';
+import { getAllCities } from '../../lib/data';
+
+export function getStaticPaths() {
+  return SERVICES.map(s => ({
+    params: { slug: s.slug },
+    props: { service: s },
+  }));
+}
+
+const { service } = Astro.props;
+const topCities = getAllCities().slice(0, 8);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: service.title,
+  description: service.description,
+  provider: {
+    '@type': 'Organization',
+    name: 'TopRoofers',
+  },
+};
+---
+
+<BaseLayout
+  title={`${service.title} Contractors Near You | ${service.avgCost} | TopRoofers`}
+  description={service.description}
+  schema={schema}
+>
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <BreadcrumbNav crumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services/' },
+      { label: service.title, href: `/services/${service.slug}/` },
+    ]} />
+
+    <h1 class="text-3xl font-bold text-brand-navy mb-4">{service.title}</h1>
+    <p class="text-lg text-brand-muted mb-8">{service.heroText}</p>
+
+    <!-- Cost badge -->
+    <div class="bg-brand-accent/10 border border-brand-accent/20 rounded-xl p-4 mb-8 flex items-center gap-3">
+      <svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <div>
+        <span class="text-sm font-semibold text-brand-navy">Average Cost: </span>
+        <span class="text-sm text-brand-muted">{service.avgCost}</span>
+      </div>
+    </div>
+
+    <!-- Content sections -->
+    {service.sections.map(section => (
+      <div class="mb-8">
+        <h2 class="text-xl font-bold text-brand-navy mb-3">{section.heading}</h2>
+        <p class="text-brand-muted leading-relaxed">{section.text}</p>
+      </div>
+    ))}
+
+    <!-- Find contractors CTA -->
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-8">
+      <h2 class="text-xl font-bold text-brand-navy mb-4">Find {service.title} Contractors</h2>
+      <p class="text-sm text-brand-muted mb-4">Browse verified contractors in your city:</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {topCities.map(city => (
+          <a href={`/states/${city.stateSlug}/${city.slug}/`} class="text-center py-2 px-3 rounded-lg border border-slate-200 hover:border-brand-accent hover:bg-brand-accent/5 transition text-sm">
+            <div class="font-medium text-brand-navy">{city.city}</div>
+            <div class="text-xs text-brand-muted">{city.count} roofers</div>
+          </a>
+        ))}
+      </div>
+      <a href="/states/" class="block mt-4 text-center text-sm text-brand-accent hover:underline">Browse all cities &rarr;</a>
+    </div>
+
+    <QuoteForm />
+  </div>
+</BaseLayout>
