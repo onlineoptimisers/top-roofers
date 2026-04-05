@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../../components/BreadcrumbNav.astro';
+import ListingCard from '../../../../components/ListingCard.astro';
+import ClaimCTA from '../../../../components/ClaimCTA.astro';
+import { getAllCities, getListingsByCity, getStateName } from '../../../../lib/data';
+
+export function getStaticPaths() {
+  const cities = getAllCities();
+  return cities.map(c => ({
+    params: { state: c.stateSlug, city: c.slug },
+    props: { cityMeta: c },
+  }));
+}
+
+const { cityMeta } = Astro.props;
+const listings = getListingsByCity(cityMeta.city, cityMeta.state);
+const stateName = getStateName(cityMeta.state);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `Best Roofers in ${cityMeta.city}, ${cityMeta.state}`,
+  numberOfItems: listings.length,
+  itemListElement: listings.slice(0, 20).map((l, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: `https://top-roofers.pages.dev/states/${cityMeta.stateSlug}/${cityMeta.slug}/${l.slug}/`,
+    name: l.title,
+  })),
+};
+---
+
+<BaseLayout
+  title={`Top ${listings.length} Roofers in ${cityMeta.city}, ${cityMeta.state} | Reviews & Ratings | TopRoofers`}
+  description={`Find the best roofing contractors in ${cityMeta.city}, ${stateName}. Compare ${listings.length} verified roofers by reviews and ratings.`}
+  schema={schema}
+>
+  <div class="max-w-7xl mx-auto px-4 py-8">
+    <BreadcrumbNav crumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'States', href: '/states/' },
+      { label: stateName, href: `/states/${cityMeta.stateSlug}/` },
+      { label: cityMeta.city, href: `/states/${cityMeta.stateSlug}/${cityMeta.slug}/` },
+    ]} />
+
+    <h1 class="text-3xl font-bold text-brand-navy mb-2">
+      Roofers in {cityMeta.city}, {cityMeta.state}
+    </h1>
+    <p class="text-brand-muted mb-6">
+      {listings.length} verified roofing contractors &middot; {cityMeta.avgRating.toFixed(1)} average rating
+    </p>
+
+    <!-- Map -->
+    <div class="rounded-xl overflow-hidden shadow-sm border border-slate-200 mb-8" style="height: 350px;">
+      <div id="city-map" class="w-full h-full"></div>
+    </div>
+
+    <!-- Sort controls -->
+    <div class="flex items-center gap-3 mb-6">
+      <span class="text-sm text-brand-muted">Sort by:</span>
+      <button id="sort-rating" class="text-sm px-3 py-1 rounded-full bg-brand-accent text-brand-navy font-medium">Rating</button>
+      <button id="sort-reviews" class="text-sm px-3 py-1 rounded-full bg-slate-100 text-brand-muted hover:bg-slate-200 transition">Reviews</button>
+    </div>
+
+    <!-- Listings -->
+    <div id="listings-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {listings.map(listing => (
+        <ListingCard
+          listing={listing}
+          citySlug={cityMeta.slug}
+          stateSlug={cityMeta.stateSlug}
+        />
+      ))}
+    </div>
+
+    <ClaimCTA />
+  </div>
+
+  <!-- Leaflet Map -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script define:vars={{ listings: listings.map(l => ({ title: l.title, lat: l.lat, lng: l.lng, slug: l.slug, rating: l.rating, reviews: l.reviews })), stateSlug: cityMeta.stateSlug, citySlug: cityMeta.slug }}>
+    const mapEl = document.getElementById('city-map');
+    if (mapEl && listings.length > 0) {
+      const map = L.map(mapEl).setView([listings[0].lat, listings[0].lng], 11);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 18,
+      }).addTo(map);
+
+      const icon = L.divIcon({
+        html: '<div style="background:#f59e0b;width:12px;height:12px;border-radius:50%;border:2px solid #0f172a;"></div>',
+        iconSize: [12, 12],
+        className: '',
+      });
+
+      const bounds = L.latLngBounds([]);
+      for (const l of listings) {
+        if (l.lat && l.lng) {
+          const marker = L.marker([l.lat, l.lng], { icon })
+            .addTo(map)
+            .bindPopup(`<strong>${l.title}</strong><br>${l.rating} stars (${l.reviews} reviews)<br><a href="/states/${stateSlug}/${citySlug}/${l.slug}/">View Listing</a>`);
+          bounds.extend([l.lat, l.lng]);
+        }
+      }
+      if (bounds.isValid()) map.fitBounds(bounds, { padding: [30, 30] });
+    }
+  </script>
+</BaseLayout>

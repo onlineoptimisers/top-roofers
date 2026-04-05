@@ -1,0 +1,193 @@
+city,state,state_abbr
+San Antonio,Texas,TX
+Dallas,Texas,TX
+Fort Worth,Texas,TX
+Houston,Texas,TX
+Austin,Texas,TX
+El Paso,Texas,TX
+Arlington,Texas,TX
+Plano,Texas,TX
+Lubbock,Texas,TX
+Amarillo,Texas,TX
+Corpus Christi,Texas,TX
+Waco,Texas,TX
+Frisco,Texas,TX
+McKinney,Texas,TX
+Jacksonville,Florida,FL
+Tampa,Florida,FL
+Orlando,Florida,FL
+Miami,Florida,FL
+St. Petersburg,Florida,FL
+Fort Myers,Florida,FL
+Cape Coral,Florida,FL
+Tallahassee,Florida,FL
+Pensacola,Florida,FL
+Sarasota,Florida,FL
+Lakeland,Florida,FL
+Charlotte,North Carolina,NC
+Raleigh,North Carolina,NC
+Wilmington,North Carolina,NC
+Durham,North Carolina,NC
+Greensboro,North Carolina,NC
+Fayetteville,North Carolina,NC
+Asheville,North Carolina,NC
+Winston-Salem,North Carolina,NC
+Atlanta,Georgia,GA
+Savannah,Georgia,GA
+Augusta,Georgia,GA
+Columbus,Georgia,GA
+Macon,Georgia,GA
+Athens,Georgia,GA
+Phoenix,Arizona,AZ
+Tucson,Arizona,AZ
+Mesa,Arizona,AZ
+Chandler,Arizona,AZ
+Scottsdale,Arizona,AZ
+Gilbert,Arizona,AZ
+Tempe,Arizona,AZ
+Nashville,Tennessee,TN
+Memphis,Tennessee,TN
+Knoxville,Tennessee,TN
+Chattanooga,Tennessee,TN
+Clarksville,Tennessee,TN
+Murfreesboro,Tennessee,TN
+Oklahoma City,Oklahoma,OK
+Tulsa,Oklahoma,OK
+Broken Arrow,Oklahoma,OK
+Norman,Oklahoma,OK
+Denver,Colorado,CO
+Colorado Springs,Colorado,CO
+Aurora,Colorado,CO
+Fort Collins,Colorado,CO
+Las Vegas,Nevada,NV
+Henderson,Nevada,NV
+Reno,Nevada,NV
+Birmingham,Alabama,AL
+Mobile,Alabama,AL
+Huntsville,Alabama,AL
+Montgomery,Alabama,AL
+New Orleans,Louisiana,LA
+Baton Rouge,Louisiana,LA
+Shreveport,Louisiana,LA
+Lafayette,Louisiana,LA
+Columbia,South Carolina,SC
+Charleston,South Carolina,SC
+Greenville,South Carolina,SC
+Myrtle Beach,South Carolina,SC
+Richmond,Virginia,VA
+Virginia Beach,Virginia,VA
+Norfolk,Virginia,VA
+Chesapeake,Virginia,VA
+Alexandria,Virginia,VA
+Kansas City,Missouri,MO
+St. Louis,Missouri,MO
+Los Angeles,California,CA
+San Diego,California,CA
+San Jose,California,CA
+San Francisco,California,CA
+Sacramento,California,CA
+Fresno,California,CA
+Long Beach,California,CA
+Riverside,California,CA
+Bakersfield,California,CA
+Anaheim,California,CA
+New York,New York,NY
+Buffalo,New York,NY
+Rochester,New York,NY
+Syracuse,New York,NY
+Albany,New York,NY
+Yonkers,New York,NY
+Chicago,Illinois,IL
+Aurora,Illinois,IL
+Naperville,Illinois,IL
+Rockford,Illinois,IL
+Springfield,Illinois,IL
+Philadelphia,Pennsylvania,PA
+Pittsburgh,Pennsylvania,PA
+Allentown,Pennsylvania,PA
+Erie,Pennsylvania,PA
+Columbus,Ohio,OH
+Cleveland,Ohio,OH
+Cincinnati,Ohio,OH
+Toledo,Ohio,OH
+Akron,Ohio,OH
+Dayton,Ohio,OH
+Detroit,Michigan,MI
+Grand Rapids,Michigan,MI
+Warren,Michigan,MI
+Ann Arbor,Michigan,MI
+Lansing,Michigan,MI
+Seattle,Washington,WA
+Tacoma,Washington,WA
+Spokane,Washington,WA
+Vancouver,Washington,WA
+Boston,Massachusetts,MA
+Worcester,Massachusetts,MA
+Springfield,Massachusetts,MA
+Cambridge,Massachusetts,MA
+Newark,New Jersey,NJ
+Jersey City,New Jersey,NJ
+Paterson,New Jersey,NJ
+Trenton,New Jersey,NJ
+Indianapolis,Indiana,IN
+Fort Wayne,Indiana,IN
+South Bend,Indiana,IN
+Evansville,Indiana,IN
+Minneapolis,Minnesota,MN
+St. Paul,Minnesota,MN
+Rochester,Minnesota,MN
+Milwaukee,Wisconsin,WI
+Madison,Wisconsin,WI
+Green Bay,Wisconsin,WI
+Portland,Oregon,OR
+Eugene,Oregon,OR
+Salem,Oregon,OR
+Baltimore,Maryland,MD
+Hartford,Connecticut,CT
+New Haven,Connecticut,CT
+Bridgeport,Connecticut,CT
+Salt Lake City,Utah,UT
+Provo,Utah,UT
+Ogden,Utah,UT
+Little Rock,Arkansas,AR
+Fayetteville,Arkansas,AR
+Fort Smith,Arkansas,AR
+Jackson,Mississippi,MS
+Gulfport,Mississippi,MS
+Louisville,Kentucky,KY
+Lexington,Kentucky,KY
+Bowling Green,Kentucky,KY
+Des Moines,Iowa,IA
+Cedar Rapids,Iowa,IA
+Davenport,Iowa,IA
+Wichita,Kansas,KS
+Overland Park,Kansas,KS
+Topeka,Kansas,KS
+Omaha,Nebraska,NE
+Lincoln,Nebraska,NE
+Albuquerque,New Mexico,NM
+Santa Fe,New Mexico,NM
+Las Cruces,New Mexico,NM
+Charleston,West Virginia,WV
+Huntington,West Virginia,WV
+Manchester,New Hampshire,NH
+Nashua,New Hampshire,NH
+Portland,Maine,ME
+Lewiston,Maine,ME
+Boise,Idaho,ID
+Meridian,Idaho,ID
+Honolulu,Hawaii,HI
+Billings,Montana,MT
+Great Falls,Montana,MT
+Cheyenne,Wyoming,WY
+Casper,Wyoming,WY
+Sioux Falls,South Dakota,SD
+Rapid City,South Dakota,SD
+Fargo,North Dakota,ND
+Bismarck,North Dakota,ND
+Burlington,Vermont,VT
+Wilmington,Delaware,DE
+Dover,Delaware,DE
+Providence,Rhode Island,RI
+Warwick,Rhode Island,RI
+Anchorage,Alaska,AK

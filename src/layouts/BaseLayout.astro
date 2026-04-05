@@ -1,0 +1,105 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  schema?: object;
+  canonical?: string;
+}
+
+const { title, description = 'Find trusted, verified roofing contractors near you. Real reviews, real ratings, real businesses.', schema, canonical } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  {canonical && <link rel="canonical" href={canonical} />}
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    @import "../styles/global.css";
+  </style>
+  {schema && (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  )}
+</head>
+<body class="bg-brand-light text-brand-navy font-['Inter',sans-serif] min-h-screen flex flex-col">
+  <!-- Navigation -->
+  <nav class="bg-brand-navy text-white sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 text-xl font-bold">
+        <svg class="w-8 h-8 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path d="M3 21h18M3 21V9l9-7 9 7v12M9 21v-6h6v6" />
+        </svg>
+        <span>Top<span class="text-brand-accent">Roofers</span></span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/states/" class={`hover:text-brand-accent transition ${currentPath.startsWith('/states') ? 'text-brand-accent' : ''}`}>Browse States</a>
+        <a href="/blog/" class={`hover:text-brand-accent transition ${currentPath.startsWith('/blog') ? 'text-brand-accent' : ''}`}>Guides</a>
+        <a href="/claim/" class="bg-brand-accent text-brand-navy px-4 py-2 rounded-lg font-semibold hover:bg-brand-accent-light transition">Claim Listing</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="mobile-menu-btn" class="md:hidden text-white p-2" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-dark px-4 pb-4">
+      <a href="/states/" class="block py-2 text-sm hover:text-brand-accent">Browse States</a>
+      <a href="/blog/" class="block py-2 text-sm hover:text-brand-accent">Guides</a>
+      <a href="/claim/" class="block py-2 text-sm text-brand-accent font-semibold">Claim Your Listing</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-1">
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brand-navy text-white py-12">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="font-bold text-lg mb-3">TopRoofers</h3>
+          <p class="text-brand-muted text-sm">Helping homeowners find trusted roofing contractors. Real reviews, real ratings, real businesses.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-3">Quick Links</h3>
+          <ul class="space-y-2 text-sm text-brand-muted">
+            <li><a href="/states/" class="hover:text-brand-accent">Browse by State</a></li>
+            <li><a href="/blog/" class="hover:text-brand-accent">Roofing Guides</a></li>
+            <li><a href="/claim/" class="hover:text-brand-accent">Claim Your Listing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-3">For Roofers</h3>
+          <p class="text-brand-muted text-sm">Your business is listed with a dofollow backlink. <a href="/claim/" class="text-brand-accent hover:underline">Claim your listing</a> to update your info and stand out.</p>
+        </div>
+      </div>
+      <div class="border-t border-brand-slate mt-8 pt-8 text-center text-sm text-brand-muted">
+        <p>&copy; {new Date().getFullYear()} TopRoofers. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile menu toggle -->
+  <script>
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+  </script>
+</body>
+</html>

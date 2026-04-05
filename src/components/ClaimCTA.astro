@@ -1,0 +1,27 @@
+---
+interface Props {
+  businessName?: string;
+}
+
+const { businessName } = Astro.props;
+const claimUrl = businessName
+  ? `/claim/?business=${encodeURIComponent(businessName)}`
+  : '/claim/';
+---
+
+<div class="bg-gradient-to-r from-brand-accent/10 to-brand-accent/5 border border-brand-accent/20 rounded-xl p-6 mt-6">
+  <div class="flex items-start gap-4">
+    <div class="flex-shrink-0 w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center">
+      <svg class="w-5 h-5 text-brand-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    </div>
+    <div>
+      <h3 class="font-semibold text-brand-navy text-lg">Is this your business?</h3>
+      <p class="text-sm text-brand-muted mt-1">Claim your listing to update your information, add photos, and get priority placement. It takes 2 minutes and your listing includes a dofollow backlink to your website.</p>
+      <a href={claimUrl} class="inline-block mt-3 bg-brand-accent text-brand-navy px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-brand-accent-light transition">
+        Claim Your Listing
+      </a>
+    </div>
+  </div>
+</div>

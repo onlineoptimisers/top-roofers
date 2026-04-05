@@ -1,0 +1,542 @@
+[
+  {
+    "state": "TX",
+    "slug": "texas",
+    "cities": [
+      "San Antonio",
+      "Dallas",
+      "Fort Worth",
+      "Houston",
+      "Austin",
+      "El Paso",
+      "Arlington",
+      "Plano",
+      "Lubbock",
+      "Amarillo",
+      "Corpus Christi",
+      "Waco",
+      "Frisco"
+    ],
+    "count": 913
+  },
+  {
+    "state": "FL",
+    "slug": "florida",
+    "cities": [
+      "Jacksonville",
+      "Tampa",
+      "Orlando",
+      "Miami",
+      "St. Petersburg",
+      "Fort Myers",
+      "Cape Coral",
+      "Tallahassee",
+      "Pensacola",
+      "Sarasota",
+      "Lakeland"
+    ],
+    "count": 734
+  },
+  {
+    "state": "NC",
+    "slug": "north-carolina",
+    "cities": [
+      "Charlotte",
+      "Raleigh",
+      "Wilmington",
+      "Durham",
+      "Greensboro",
+      "Fayetteville",
+      "Asheville",
+      "Winston-Salem"
+    ],
+    "count": 522
+  },
+  {
+    "state": "GA",
+    "slug": "georgia",
+    "cities": [
+      "Atlanta",
+      "Savannah",
+      "Augusta",
+      "Columbus",
+      "Macon",
+      "Athens"
+    ],
+    "count": 351
+  },
+  {
+    "state": "AZ",
+    "slug": "arizona",
+    "cities": [
+      "Phoenix",
+      "Tucson",
+      "Mesa",
+      "Chandler",
+      "Scottsdale",
+      "Gilbert",
+      "Tempe"
+    ],
+    "count": 392
+  },
+  {
+    "state": "TN",
+    "slug": "tennessee",
+    "cities": [
+      "Nashville",
+      "Memphis",
+      "Knoxville",
+      "Chattanooga",
+      "Clarksville",
+      "Murfreesboro"
+    ],
+    "count": 358
+  },
+  {
+    "state": "OK",
+    "slug": "oklahoma",
+    "cities": [
+      "Oklahoma City",
+      "Tulsa",
+      "Broken Arrow",
+      "Norman"
+    ],
+    "count": 253
+  },
+  {
+    "state": "CO",
+    "slug": "colorado",
+    "cities": [
+      "Denver",
+      "Colorado Springs",
+      "Aurora",
+      "Fort Collins"
+    ],
+    "count": 257
+  },
+  {
+    "state": "NV",
+    "slug": "nevada",
+    "cities": [
+      "Las Vegas",
+      "Henderson",
+      "Reno"
+    ],
+    "count": 161
+  },
+  {
+    "state": "AL",
+    "slug": "alabama",
+    "cities": [
+      "Birmingham",
+      "Mobile",
+      "Huntsville",
+      "Montgomery"
+    ],
+    "count": 201
+  },
+  {
+    "state": "LA",
+    "slug": "louisiana",
+    "cities": [
+      "New Orleans",
+      "Baton Rouge",
+      "Shreveport",
+      "Lafayette"
+    ],
+    "count": 230
+  },
+  {
+    "state": "SC",
+    "slug": "south-carolina",
+    "cities": [
+      "Columbia",
+      "Charleston",
+      "Greenville",
+      "Myrtle Beach"
+    ],
+    "count": 231
+  },
+  {
+    "state": "VA",
+    "slug": "virginia",
+    "cities": [
+      "Richmond",
+      "Virginia Beach",
+      "Norfolk",
+      "Chesapeake",
+      "Alexandria"
+    ],
+    "count": 245
+  },
+  {
+    "state": "MO",
+    "slug": "missouri",
+    "cities": [
+      "Kansas City",
+      "St. Louis"
+    ],
+    "count": 145
+  },
+  {
+    "state": "CA",
+    "slug": "california",
+    "cities": [
+      "Los Angeles",
+      "San Diego",
+      "San Jose",
+      "San Francisco",
+      "Sacramento",
+      "Fresno",
+      "Long Beach",
+      "Riverside",
+      "Bakersfield",
+      "Anaheim"
+    ],
+    "count": 552
+  },
+  {
+    "state": "NY",
+    "slug": "new-york",
+    "cities": [
+      "New York",
+      "Buffalo",
+      "Rochester",
+      "Syracuse",
+      "Albany",
+      "Yonkers"
+    ],
+    "count": 353
+  },
+  {
+    "state": "IL",
+    "slug": "illinois",
+    "cities": [
+      "Chicago",
+      "Aurora",
+      "Naperville",
+      "Rockford",
+      "Springfield"
+    ],
+    "count": 322
+  },
+  {
+    "state": "PA",
+    "slug": "pennsylvania",
+    "cities": [
+      "Philadelphia",
+      "Pittsburgh",
+      "Allentown",
+      "Erie"
+    ],
+    "count": 231
+  },
+  {
+    "state": "OH",
+    "slug": "ohio",
+    "cities": [
+      "Columbus",
+      "Cleveland",
+      "Cincinnati",
+      "Toledo",
+      "Akron",
+      "Dayton"
+    ],
+    "count": 397
+  },
+  {
+    "state": "MI",
+    "slug": "michigan",
+    "cities": [
+      "Detroit",
+      "Grand Rapids",
+      "Warren",
+      "Ann Arbor",
+      "Lansing"
+    ],
+    "count": 298
+  },
+  {
+    "state": "WA",
+    "slug": "washington",
+    "cities": [
+      "Seattle",
+      "Tacoma",
+      "Spokane",
+      "Vancouver"
+    ],
+    "count": 275
+  },
+  {
+    "state": "MA",
+    "slug": "massachusetts",
+    "cities": [
+      "Boston",
+      "Worcester",
+      "Springfield",
+      "Cambridge"
+    ],
+    "count": 214
+  },
+  {
+    "state": "NJ",
+    "slug": "new-jersey",
+    "cities": [
+      "Newark",
+      "Jersey City",
+      "Paterson",
+      "Trenton"
+    ],
+    "count": 228
+  },
+  {
+    "state": "IN",
+    "slug": "indiana",
+    "cities": [
+      "Indianapolis",
+      "Fort Wayne",
+      "South Bend",
+      "Evansville"
+    ],
+    "count": 235
+  },
+  {
+    "state": "MN",
+    "slug": "minnesota",
+    "cities": [
+      "Minneapolis",
+      "Rochester"
+    ],
+    "count": 133
+  },
+  {
+    "state": "WI",
+    "slug": "wisconsin",
+    "cities": [
+      "Milwaukee",
+      "Madison",
+      "Green Bay"
+    ],
+    "count": 171
+  },
+  {
+    "state": "OR",
+    "slug": "oregon",
+    "cities": [
+      "Portland",
+      "Eugene",
+      "Salem"
+    ],
+    "count": 188
+  },
+  {
+    "state": "MD",
+    "slug": "maryland",
+    "cities": [
+      "Baltimore"
+    ],
+    "count": 71
+  },
+  {
+    "state": "CT",
+    "slug": "connecticut",
+    "cities": [
+      "Hartford",
+      "New Haven",
+      "Bridgeport"
+    ],
+    "count": 168
+  },
+  {
+    "state": "UT",
+    "slug": "utah",
+    "cities": [
+      "Salt Lake City",
+      "Provo",
+      "Ogden"
+    ],
+    "count": 190
+  },
+  {
+    "state": "AR",
+    "slug": "arkansas",
+    "cities": [
+      "Little Rock",
+      "Fayetteville",
+      "Fort Smith"
+    ],
+    "count": 168
+  },
+  {
+    "state": "MS",
+    "slug": "mississippi",
+    "cities": [
+      "Jackson",
+      "Gulfport"
+    ],
+    "count": 99
+  },
+  {
+    "state": "KY",
+    "slug": "kentucky",
+    "cities": [
+      "Louisville",
+      "Lexington",
+      "Bowling Green"
+    ],
+    "count": 183
+  },
+  {
+    "state": "IA",
+    "slug": "iowa",
+    "cities": [
+      "Des Moines",
+      "Cedar Rapids",
+      "Davenport"
+    ],
+    "count": 184
+  },
+  {
+    "state": "KS",
+    "slug": "kansas",
+    "cities": [
+      "Wichita",
+      "Overland Park",
+      "Topeka"
+    ],
+    "count": 147
+  },
+  {
+    "state": "NE",
+    "slug": "nebraska",
+    "cities": [
+      "Omaha",
+      "Lincoln"
+    ],
+    "count": 133
+  },
+  {
+    "state": "NM",
+    "slug": "new-mexico",
+    "cities": [
+      "Albuquerque",
+      "Santa Fe",
+      "Las Cruces"
+    ],
+    "count": 176
+  },
+  {
+    "state": "WV",
+    "slug": "west-virginia",
+    "cities": [
+      "Charleston",
+      "Huntington"
+    ],
+    "count": 86
+  },
+  {
+    "state": "NH",
+    "slug": "new-hampshire",
+    "cities": [
+      "Manchester",
+      "Nashua"
+    ],
+    "count": 124
+  },
+  {
+    "state": "ME",
+    "slug": "maine",
+    "cities": [
+      "Portland",
+      "Lewiston"
+    ],
+    "count": 107
+  },
+  {
+    "state": "ID",
+    "slug": "idaho",
+    "cities": [
+      "Boise",
+      "Meridian"
+    ],
+    "count": 99
+  },
+  {
+    "state": "HI",
+    "slug": "hawaii",
+    "cities": [
+      "Honolulu"
+    ],
+    "count": 61
+  },
+  {
+    "state": "MT",
+    "slug": "montana",
+    "cities": [
+      "Billings",
+      "Great Falls"
+    ],
+    "count": 93
+  },
+  {
+    "state": "WY",
+    "slug": "wyoming",
+    "cities": [
+      "Cheyenne",
+      "Casper"
+    ],
+    "count": 103
+  },
+  {
+    "state": "SD",
+    "slug": "south-dakota",
+    "cities": [
+      "Sioux Falls",
+      "Rapid City"
+    ],
+    "count": 116
+  },
+  {
+    "state": "ND",
+    "slug": "north-dakota",
+    "cities": [
+      "Fargo",
+      "Bismarck"
+    ],
+    "count": 95
+  },
+  {
+    "state": "VT",
+    "slug": "vermont",
+    "cities": [
+      "Burlington"
+    ],
+    "count": 59
+  },
+  {
+    "state": "DE",
+    "slug": "delaware",
+    "cities": [
+      "Wilmington",
+      "Dover"
+    ],
+    "count": 114
+  },
+  {
+    "state": "RI",
+    "slug": "rhode-island",
+    "cities": [
+      "Providence",
+      "Warwick"
+    ],
+    "count": 114
+  },
+  {
+    "state": "AK",
+    "slug": "alaska",
+    "cities": [
+      "Anchorage"
+    ],
+    "count": 64
+  }
+]
