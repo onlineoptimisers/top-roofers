@@ -1,0 +1,69 @@
+---
+import { SITE } from '../data/site';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'RoofingContractor',
+  name: SITE.name,
+  url: SITE.url,
+  telephone: [SITE.phones.hillCountryTel, SITE.phones.austinTel],
+  email: 'Info@RedRoanConstruction.com',
+  description: SITE.description,
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: SITE.address.city,
+    addressRegion: SITE.address.state,
+    addressCountry: 'US',
+    description: SITE.address.serviceArea,
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Copperas Cove TX' },
+    { '@type': 'City', name: 'Lampasas TX' },
+    { '@type': 'City', name: 'Burnet TX' },
+    { '@type': 'City', name: 'Georgetown TX' },
+    { '@type': 'City', name: 'Cedar Park TX' },
+    { '@type': 'City', name: 'Round Rock TX' },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Roofing Services',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Roof Replacement',
+          description: 'Full asphalt shingle and metal roof replacement for residential and light commercial properties across Central Texas.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Storm Damage Repair',
+          description: 'Hail and wind damage assessment, insurance claim support, and emergency repairs after Texas storms.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Roof Repair',
+          description: 'Leak repair, partial replacement, and emergency callouts for damaged or aging roofs.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Roof Inspection',
+          description: 'Free inspections for homeowners and buyers. Full documentation for insurance claims and annual maintenance.',
+        },
+      },
+    ],
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

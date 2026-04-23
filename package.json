@@ -1,5 +1,5 @@
 {
-  "name": "top-roofers",
+  "name": "red-roan-site",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -19,5 +19,8 @@
     "tailwindcss": "^4.2.2",
     "tsx": "^4.21.0",
     "wrangler": "^4.80.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-darwin-arm64": "^4.60.2"
   }
 }

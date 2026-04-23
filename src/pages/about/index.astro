@@ -1,0 +1,257 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../data/site';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE.name,
+  url: SITE.url,
+  telephone: [SITE.phones.hillCountryTel, SITE.phones.austinTel],
+  email: SITE.email,
+  foundingLocation: {
+    '@type': 'Place',
+    name: 'Texas Hill Country',
+  },
+  areaServed: [
+    { '@type': 'AdministrativeArea', name: 'Texas Hill Country' },
+    { '@type': 'AdministrativeArea', name: 'Austin Metro, Texas' },
+  ],
+  description: `Family-owned roofing contractor serving the Texas Hill Country and Austin metro for ${SITE.years} years. Two dedicated service teams, ${SITE.warranty}.`,
+};
+---
+
+<BaseLayout
+  title={`About ${SITE.name} | Local Roofing Contractor, Hill Country & Austin`}
+  description={`Learn about ${SITE.name} — a family-owned roofing company with ${SITE.years} years serving Central Texas. Two local teams, ${SITE.warranty}.`}
+  schema={schema}
+  canonical={`${SITE.url}/about/`}
+>
+
+  <!-- Hero -->
+  <section class="bg-brand-navy text-white py-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5"
+      style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><path d=%22M30 0L60 30L30 60L0 30Z%22 fill=%22none%22 stroke=%22white%22 stroke-width=%221%22/></svg>'); background-size: 60px 60px;">
+    </div>
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+      <p class="text-brand-accent font-semibold text-sm uppercase tracking-widest mb-3">Family-Owned &amp; Community-Focused</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">About Red Roan Construction</h1>
+      <p class="text-lg text-white/70 max-w-2xl mx-auto">
+        {SITE.years} years serving Central Texas homeowners. Two dedicated crews. One standard: do the job right.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="py-20 bg-brand-light">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-brand-accent font-semibold text-sm uppercase tracking-widest mb-3">Our Story</p>
+          <h2 class="text-3xl font-bold text-brand-navy mb-6">Built in the Hill Country, Grown by Reputation</h2>
+          <div class="space-y-4 text-brand-muted leading-relaxed">
+            <p>
+              Red Roan Construction was founded in the Texas Hill Country over a decade ago. What started as a two-man operation has grown into two dedicated service teams covering Central Texas from Fredericksburg to Georgetown.
+            </p>
+            <p>
+              We are family-owned and we live and work in the same communities we serve. That is not a tagline. It means we see our customers at the hardware store, at church, and at the school gates. Our reputation is local, and we protect it on every job.
+            </p>
+            <p>
+              In {SITE.years} years, we have replaced and repaired hundreds of roofs across the Hill Country and Austin metro. We have helped homeowners navigate storm damage claims, installed metal roofs that will outlast the house, and fixed leaks the same week they were reported.
+            </p>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 text-center">
+            <div class="text-4xl font-bold text-brand-accent mb-1">{SITE.years}</div>
+            <div class="text-sm text-brand-muted font-medium">Years in Business</div>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 text-center">
+            <div class="text-4xl font-bold text-brand-accent mb-1">2</div>
+            <div class="text-sm text-brand-muted font-medium">Dedicated Service Teams</div>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 text-center">
+            <div class="text-4xl font-bold text-brand-accent mb-1">5yr</div>
+            <div class="text-sm text-brand-muted font-medium">Workmanship Warranty</div>
+          </div>
+          <div class="bg-brand-navy rounded-2xl p-6 text-center">
+            <div class="text-4xl font-bold text-white mb-1">TX</div>
+            <div class="text-sm text-white/60 font-medium">Hill Country + Austin</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why We're Different -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <p class="text-brand-accent font-semibold text-sm uppercase tracking-widest mb-3">Why We're Different</p>
+        <h2 class="text-3xl font-bold text-brand-navy">Three Things We Never Compromise On</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Pillar 1 -->
+        <div class="bg-brand-light rounded-2xl p-8 border border-slate-100">
+          <div class="w-12 h-12 bg-brand-accent/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-brand-navy mb-3">Local Expertise</h3>
+          <p class="text-brand-muted leading-relaxed text-sm">
+            We live and work in the same communities we serve. Hill Country roofs face different challenges than Austin metro roofs - different weather patterns, different materials, different codes. We know the difference because we grew up here.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="bg-brand-accent rounded-2xl p-8 text-white">
+          <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">5-Year Workmanship Warranty</h3>
+          <p class="text-white/80 leading-relaxed text-sm">
+            We stand behind every nail and every seam. If anything fails due to our work within five years, we come back and fix it. No questions asked. No small print. A warranty is only worth something if the company behind it is still answering the phone.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="bg-brand-light rounded-2xl p-8 border border-slate-100">
+          <div class="w-12 h-12 bg-brand-accent/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-brand-navy mb-3">Two Service Teams</h3>
+          <p class="text-brand-muted leading-relaxed text-sm">
+            One team is based in the Hill Country. One covers the Austin metro. No three-hour drive times. No scheduling a job two weeks out because the crew is on the other side of the region. When you call, someone who knows your area picks up.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Area -->
+  <section class="py-20 bg-brand-warm">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <p class="text-brand-accent font-semibold text-sm uppercase tracking-widest mb-3">Our Service Area</p>
+        <h2 class="text-3xl font-bold text-brand-navy">Two Teams, Two Regions</h2>
+        <p class="text-brand-muted mt-3 max-w-xl mx-auto">Call the team closest to you for the fastest response time and the most accurate local pricing.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Hill Country Team -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+          <div class="bg-brand-navy px-6 py-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-white/50 text-xs uppercase tracking-widest mb-1">Hill Country Team</p>
+                <h3 class="text-white font-bold text-lg">Central &amp; West Region</h3>
+              </div>
+              <a
+                href={`tel:${SITE.phones.hillCountryTel}`}
+                class="bg-brand-accent text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-accent-light transition"
+              >
+                {SITE.phones.hillCountry}
+              </a>
+            </div>
+          </div>
+          <div class="p-6">
+            <ul class="grid grid-cols-2 gap-2">
+              {[
+                'Copperas Cove',
+                'Lampasas',
+                'Burnet',
+                'Llano',
+                'Marble Falls',
+                'Fredericksburg',
+                'San Saba',
+                'Brady',
+              ].map(city => (
+                <li class="flex items-center gap-2 text-sm text-brand-muted">
+                  <svg class="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>
+                  {city}
+                </li>
+              ))}
+            </ul>
+            <p class="text-xs text-brand-muted mt-4 pt-4 border-t border-slate-100">+ surrounding areas throughout the Hill Country</p>
+          </div>
+        </div>
+
+        <!-- Austin Team -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+          <div class="bg-brand-slate px-6 py-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-white/50 text-xs uppercase tracking-widest mb-1">Austin Team</p>
+                <h3 class="text-white font-bold text-lg">Austin Metro Region</h3>
+              </div>
+              <a
+                href={`tel:${SITE.phones.austinTel}`}
+                class="bg-brand-accent text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-accent-light transition"
+              >
+                {SITE.phones.austin}
+              </a>
+            </div>
+          </div>
+          <div class="p-6">
+            <ul class="grid grid-cols-2 gap-2">
+              {[
+                'Georgetown',
+                'Cedar Park',
+                'Round Rock',
+                'Pflugerville',
+                'Kyle',
+                'Buda',
+                'San Marcos',
+                'New Braunfels',
+              ].map(city => (
+                <li class="flex items-center gap-2 text-sm text-brand-muted">
+                  <svg class="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>
+                  {city}
+                </li>
+              ))}
+            </ul>
+            <p class="text-xs text-brand-muted mt-4 pt-4 border-t border-slate-100">+ surrounding areas throughout the Austin metro</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Promise -->
+  <section class="py-20 bg-brand-navy text-white">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-brand-accent font-semibold text-sm uppercase tracking-widest mb-3">Our Promise</p>
+      <h2 class="text-3xl font-bold mb-6">We Stand Behind Every Roof We Install</h2>
+      <p class="text-white/70 text-lg leading-relaxed mb-4">
+        Every roof we install comes with a 5-year workmanship warranty. If anything fails due to our work, we come back and fix it. No questions asked.
+      </p>
+      <p class="text-white/50 text-base leading-relaxed mb-10">
+        We have been doing this for over a decade in the same communities. We are not going anywhere. When you call us in year four with a concern, someone who knows your roof answers the phone.
+      </p>
+      <a
+        href="/contact/"
+        class="inline-flex items-center gap-2 bg-brand-accent text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-brand-accent-light transition"
+      >
+        Get a Free Estimate
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>

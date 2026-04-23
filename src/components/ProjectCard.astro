@@ -1,0 +1,86 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  location: string;
+  type: string;
+  imageUrl: string;
+  excerpt: string;
+}
+
+const { slug, title, location, type, imageUrl, excerpt } = Astro.props;
+const hasImage = imageUrl && imageUrl.trim().length > 0;
+---
+
+<div class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden flex flex-col">
+
+  <!-- Image / Placeholder -->
+  {hasImage ? (
+    <div class="aspect-video overflow-hidden">
+      <img
+        src={imageUrl}
+        alt={title}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        loading="lazy"
+      />
+    </div>
+  ) : (
+    <div class="aspect-video flex items-center justify-center" style="background-color: #1a2744;">
+      <svg
+        class="w-16 h-16 opacity-30"
+        fill="none"
+        viewBox="0 0 64 64"
+        stroke="white"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <!-- Simple house/roof silhouette -->
+        <path d="M8 28L32 8l24 20" />
+        <path d="M14 24v28h36V24" />
+        <path d="M24 52V36h16v16" />
+      </svg>
+    </div>
+  )}
+
+  <!-- Body -->
+  <div class="p-5 flex flex-col gap-3 flex-1">
+
+    <!-- Badges -->
+    <div class="flex items-center gap-2 flex-wrap">
+      <!-- Location badge -->
+      <span class="inline-flex items-center gap-1 text-xs text-[#6b7280] font-medium">
+        <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        {location}
+      </span>
+
+      <!-- Type chip -->
+      <span
+        class="inline-block text-xs font-semibold px-2 py-0.5 rounded-full"
+        style="background-color: #fdf0ed; color: #a6442e;"
+      >
+        {type}
+      </span>
+    </div>
+
+    <!-- Title + excerpt -->
+    <div class="flex flex-col gap-1.5 flex-1">
+      <h3 class="text-base font-bold text-[#1a2744] leading-snug">{title}</h3>
+      <p class="text-sm text-[#6b7280] leading-relaxed line-clamp-2">{excerpt}</p>
+    </div>
+
+    <!-- CTA -->
+    <a
+      href={`/projects/${slug}/`}
+      class="inline-flex items-center gap-1 text-sm font-semibold text-[#a6442e] group-hover:gap-2 transition-all duration-150 mt-auto pt-1"
+    >
+      View project
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </a>
+  </div>
+</div>

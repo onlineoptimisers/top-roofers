@@ -1,0 +1,512 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE } from '../../../data/site';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Roof Inspection',
+  description: 'Free roof inspections for homeowners and buyers. Full written report with photos, severity ratings, and insurance-ready documentation.',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: SITE.name,
+    telephone: [SITE.phones.hillCountry, SITE.phones.austin],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: SITE.address.city,
+      addressRegion: SITE.address.state,
+      addressCountry: 'US',
+    },
+    areaServed: SITE.address.serviceArea,
+    url: SITE.url,
+  },
+  serviceType: 'Roof Inspection',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    description: 'Free roof inspection',
+  },
+  areaServed: SITE.address.serviceArea,
+};
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'RoofingContractor',
+  name: SITE.name,
+  description: SITE.description,
+  url: SITE.url,
+  telephone: [SITE.phones.hillCountry, SITE.phones.austin],
+  email: SITE.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: SITE.address.city,
+    addressRegion: SITE.address.state,
+    addressCountry: 'US',
+  },
+  areaServed: SITE.address.serviceArea,
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Roofing Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Pre-Purchase Roof Inspection' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Annual Maintenance Inspection' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Insurance Storm Inspection' } },
+    ],
+  },
+};
+
+const inspectionTypes = [
+  {
+    title: 'Pre-Purchase Inspection',
+    icon: 'home',
+    badge: 'Home Buyers',
+    description: 'Know what you\'re buying before you close. Buying a home with hidden roof damage can mean thousands in unexpected repairs in the first year of ownership.',
+    bullets: [
+      'Full condition report with photos',
+      'Estimated remaining lifespan',
+      'Repair cost estimates for any issues found',
+      'Written report you can share with your realtor or attorney',
+    ],
+  },
+  {
+    title: 'Annual Maintenance Inspection',
+    icon: 'calendar',
+    badge: 'Homeowners',
+    description: 'Catch small problems before they become expensive. Texas heat, UV exposure, and storm season put roofs under constant stress. An annual check keeps you ahead of problems.',
+    bullets: [
+      'Comprehensive condition review',
+      'Flashing and sealant check',
+      'Gutter and drainage assessment',
+      'Prioritised repair list if needed',
+    ],
+  },
+  {
+    title: 'Insurance / Storm Inspection',
+    icon: 'shield',
+    badge: 'Storm Damage',
+    description: 'Full photo documentation for insurance claims. We write adjuster-ready reports that document every area of damage clearly and completely.',
+    bullets: [
+      'Timestamped photos of all damage',
+      'Severity ratings per area',
+      'Written report in insurance-standard format',
+      'We can meet your adjuster on-site',
+    ],
+  },
+];
+
+const whatWeInspect = [
+  'Shingle condition and granule loss',
+  'Flashing and valleys',
+  'Ridge caps and hip ridges',
+  'Soffit and fascia',
+  'Gutters and drainage',
+  'Attic ventilation',
+  'Chimney and penetrations',
+  'Any visible structural issues',
+];
+---
+
+<BaseLayout
+  title="Roof Inspection Central Texas | Red Roan Construction"
+  description="Free roof inspections for homeowners, buyers, and annual maintenance. Full written report with photos. Hill Country (830) 388-1502 · Austin (512) 779-0037."
+  schema={[serviceSchema, localBusinessSchema]}
+  canonical={`${SITE.url}/services/roof-inspection/`}
+>
+
+  <!-- Hero -->
+  <section class="bg-brand-navy text-white py-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><path d=%22M30 0L60 30L30 60L0 30Z%22 fill=%22none%22 stroke=%22white%22 stroke-width=%221%22/></svg>'); background-size: 60px 60px;"></div>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 bg-brand-success/20 border border-brand-success/30 text-brand-success rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 13l4 4L19 7" />
+        </svg>
+        No Cost, No Obligation
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-bold mb-5 leading-tight">
+        Free Roof Inspections<br />
+        <span class="text-brand-accent-light">for Texas Homeowners</span>
+      </h1>
+      <p class="text-lg text-white/75 max-w-2xl mx-auto mb-10">
+        Whether you're buying a home, keeping up with maintenance, or dealing with storm damage, we'll give you a complete picture of your roof's condition - in writing, with photos.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-3 mb-10 text-sm text-white/70">
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-brand-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" /></svg>
+          Pre-purchase inspections
+        </span>
+        <span class="w-px bg-white/20 hidden sm:block"></span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-brand-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" /></svg>
+          Annual maintenance checks
+        </span>
+        <span class="w-px bg-white/20 hidden sm:block"></span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-brand-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" /></svg>
+          Storm and insurance documentation
+        </span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={`tel:${SITE.phones.hillCountryTel}`}
+          class="inline-flex items-center justify-center gap-3 bg-brand-accent hover:bg-brand-accent-light text-white text-lg font-bold px-8 py-4 rounded-xl transition shadow-lg shadow-brand-accent/30"
+        >
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Hill Country: {SITE.phones.hillCountry}
+        </a>
+        <a
+          href={`tel:${SITE.phones.austinTel}`}
+          class="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 border border-white/30 text-white text-lg font-bold px-8 py-4 rounded-xl transition"
+        >
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Austin: {SITE.phones.austin}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Inspection Types -->
+  <section class="py-20 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl font-bold text-brand-navy mb-4">Three Types of Roof Inspection</h2>
+        <p class="text-brand-muted max-w-xl mx-auto">
+          We offer three distinct inspection types depending on your situation. All three are free and include a written report with photos.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Pre-purchase -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1">
+          <div class="bg-brand-navy p-6">
+            <span class="inline-block bg-brand-accent text-white text-xs font-bold px-3 py-1 rounded-full mb-4">Home Buyers</span>
+            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-3">
+              <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white">Pre-Purchase Inspection</h3>
+          </div>
+          <div class="p-6">
+            <p class="text-brand-muted text-sm leading-relaxed mb-5">
+              Know what you're buying before you close. Buying a home with hidden roof damage can mean thousands in unexpected repairs in the first year of ownership.
+            </p>
+            <ul class="space-y-2">
+              {['Full condition report with photos', 'Estimated remaining lifespan', 'Repair cost estimates for any issues found', 'Written report you can share with your realtor or attorney'].map(item => (
+                <li class="flex items-start gap-2 text-sm text-brand-muted">
+                  <svg class="w-4 h-4 text-brand-success flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" /></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Annual maintenance -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1">
+          <div class="bg-brand-slate p-6">
+            <span class="inline-block bg-brand-accent text-white text-xs font-bold px-3 py-1 rounded-full mb-4">Homeowners</span>
+            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-3">
+              <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white">Annual Maintenance Inspection</h3>
+          </div>
+          <div class="p-6">
+            <p class="text-brand-muted text-sm leading-relaxed mb-5">
+              Catch small problems before they become expensive. Texas heat, UV exposure, and storm season put roofs under constant stress. An annual check keeps you ahead of problems.
+            </p>
+            <ul class="space-y-2">
+              {['Comprehensive condition review', 'Flashing and sealant check', 'Gutter and drainage assessment', 'Prioritised repair list if needed'].map(item => (
+                <li class="flex items-start gap-2 text-sm text-brand-muted">
+                  <svg class="w-4 h-4 text-brand-success flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" /></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Storm/insurance -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1">
+          <div class="bg-brand-accent p-6">
+            <span class="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full mb-4">Storm Damage</span>
+            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-3">
+              <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white">Insurance / Storm Inspection</h3>
+          </div>
+          <div class="p-6">
+            <p class="text-brand-muted text-sm leading-relaxed mb-5">
+              Full photo documentation for insurance claims. We write adjuster-ready reports that document every area of damage clearly and completely.
+            </p>
+            <ul class="space-y-2">
+              {['Timestamped photos of all damage', 'Severity ratings per area', 'Written report in insurance-standard format', 'We can meet your adjuster on-site'].map(item => (
+                <li class="flex items-start gap-2 text-sm text-brand-muted">
+                  <svg class="w-4 h-4 text-brand-success flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" /></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Inspect + What You Receive -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-16">
+
+        <!-- What we inspect -->
+        <div>
+          <h2 class="text-2xl font-bold text-brand-navy mb-3">What We Inspect</h2>
+          <p class="text-brand-muted mb-8 leading-relaxed">
+            A complete inspection covers every part of the roof system, not just the shingles you can see from the ground. We get on the roof and check every component methodically.
+          </p>
+          <ul class="space-y-3">
+            {whatWeInspect.map(item => (
+              <li class="flex items-center gap-3 bg-brand-light rounded-xl px-4 py-3.5">
+                <div class="w-8 h-8 bg-brand-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span class="text-brand-navy font-medium text-sm">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- What you receive -->
+        <div>
+          <h2 class="text-2xl font-bold text-brand-navy mb-3">What You Receive</h2>
+          <p class="text-brand-muted mb-8 leading-relaxed">
+            Every inspection ends with a clear, written report you can keep, share, or use with your insurer. No verbal summary that you'll half-remember the next day.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex gap-4 items-start bg-brand-light rounded-2xl p-5 border border-slate-100">
+              <div class="w-10 h-10 bg-brand-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-brand-navy">Written report with findings</p>
+                <p class="text-brand-muted text-sm mt-1">Clear summary of every area inspected with notes on condition.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start bg-brand-light rounded-2xl p-5 border border-slate-100">
+              <div class="w-10 h-10 bg-brand-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                  <path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-brand-navy">Timestamped photos of every area inspected</p>
+                <p class="text-brand-muted text-sm mt-1">Visual evidence of current condition. Invaluable for future reference and insurance documentation.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start bg-brand-light rounded-2xl p-5 border border-slate-100">
+              <div class="w-10 h-10 bg-brand-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-brand-navy">Severity rating for each issue</p>
+                <p class="text-brand-muted text-sm mt-1">
+                  We rate each finding clearly:
+                  <span class="inline-flex gap-2 mt-2 flex-wrap">
+                    <span class="text-xs bg-brand-success/10 text-brand-success px-2 py-0.5 rounded font-medium">Minor</span>
+                    <span class="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded font-medium">Monitor</span>
+                    <span class="text-xs bg-amber-50 text-amber-600 px-2 py-0.5 rounded font-medium">Fix Soon</span>
+                    <span class="text-xs bg-red-50 text-red-600 px-2 py-0.5 rounded font-medium">Urgent</span>
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start bg-brand-light rounded-2xl p-5 border border-slate-100">
+              <div class="w-10 h-10 bg-brand-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-brand-navy">Estimated cost to repair (if needed)</p>
+                <p class="text-brand-muted text-sm mt-1">Written estimates for any work identified. No vague "we'll need to look into that."</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start bg-brand-light rounded-2xl p-5 border border-slate-100">
+              <div class="w-10 h-10 bg-brand-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-brand-navy">Insurance-ready documentation</p>
+                <p class="text-brand-muted text-sm mt-1">For storm inspections, the report includes everything your insurer or adjuster needs to process your claim.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Regular Inspections Matter -->
+  <section class="py-20 bg-brand-warm">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-14 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-brand-navy mb-6">Why Regular Inspections Matter</h2>
+          <p class="text-brand-muted leading-relaxed mb-5">
+            A typical asphalt shingle roof lasts 20-30 years with proper maintenance. But Texas heat, intense UV, and frequent hail events accelerate wear significantly. Roofs here age faster than the national average.
+          </p>
+          <p class="text-brand-muted leading-relaxed mb-5">
+            Many small issues - a flashing gap, cracked caulk around a vent, a few shingles with lifted edges - cost $100-300 to fix when caught early. Left alone, the same issues can cause $5,000 or more in water damage within a single storm season.
+          </p>
+          <p class="text-brand-muted leading-relaxed">
+            An annual inspection is the cheapest insurance you have against a major, unexpected repair bill. Most homeowners who've had a roof leak wish they'd had it inspected 12 months earlier.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-slate-100">
+            <div class="text-3xl font-bold text-brand-accent mb-1">20-30</div>
+            <div class="text-brand-navy font-semibold text-sm">Year roof lifespan</div>
+            <div class="text-brand-muted text-xs mt-1">with proper maintenance</div>
+          </div>
+          <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-slate-100">
+            <div class="text-3xl font-bold text-brand-accent mb-1">$300</div>
+            <div class="text-brand-navy font-semibold text-sm">Typical small repair</div>
+            <div class="text-brand-muted text-xs mt-1">caught early</div>
+          </div>
+          <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-slate-100">
+            <div class="text-3xl font-bold text-brand-accent mb-1">$5k+</div>
+            <div class="text-brand-navy font-semibold text-sm">Water damage cost</div>
+            <div class="text-brand-muted text-xs mt-1">same issue left untreated</div>
+          </div>
+          <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-slate-100">
+            <div class="text-3xl font-bold text-brand-accent mb-1">1x</div>
+            <div class="text-brand-navy font-semibold text-sm">Annual inspection</div>
+            <div class="text-brand-muted text-xs mt-1">recommended for Texas homes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-brand-light">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-brand-navy mb-4">Common Questions</h2>
+        <p class="text-brand-muted">What homeowners typically ask us before booking an inspection.</p>
+      </div>
+
+      <div class="space-y-4">
+        <details class="bg-white rounded-2xl border border-slate-200 overflow-hidden group" open>
+          <summary class="px-6 py-5 cursor-pointer font-semibold text-brand-navy hover:text-brand-accent transition flex items-center justify-between gap-4">
+            How long does an inspection take?
+            <svg class="w-5 h-5 text-brand-muted flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-5 text-brand-muted text-sm leading-relaxed border-t border-slate-100 pt-4">
+            Most inspections take 45-90 minutes depending on the size and complexity of the roof. Larger homes, steep pitches, or roofs with multiple penetrations (chimneys, skylights, HVAC units) take longer. We'll give you a realistic time estimate when you book.
+          </div>
+        </details>
+
+        <details class="bg-white rounded-2xl border border-slate-200 overflow-hidden group">
+          <summary class="px-6 py-5 cursor-pointer font-semibold text-brand-navy hover:text-brand-accent transition flex items-center justify-between gap-4">
+            Do you inspect metal roofs?
+            <svg class="w-5 h-5 text-brand-muted flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-5 text-brand-muted text-sm leading-relaxed border-t border-slate-100 pt-4">
+            Yes. We install and repair both metal and asphalt shingle roofs, so we inspect both. Metal roof inspections focus on panel seams, fasteners, flashing, paint/coating condition, and any evidence of oil-canning or panel movement. All the same deliverables apply - written report and photos.
+          </div>
+        </details>
+
+        <details class="bg-white rounded-2xl border border-slate-200 overflow-hidden group">
+          <summary class="px-6 py-5 cursor-pointer font-semibold text-brand-navy hover:text-brand-accent transition flex items-center justify-between gap-4">
+            Can I use your report for an insurance claim?
+            <svg class="w-5 h-5 text-brand-muted flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-5 text-brand-muted text-sm leading-relaxed border-t border-slate-100 pt-4">
+            Yes. Our storm inspection reports are written to include all the information insurers and adjusters require - a clear damage inventory, timestamped photos, and written descriptions of each affected area. We can also meet your adjuster on-site if that's helpful for your claim.
+          </div>
+        </details>
+
+        <details class="bg-white rounded-2xl border border-slate-200 overflow-hidden group">
+          <summary class="px-6 py-5 cursor-pointer font-semibold text-brand-navy hover:text-brand-accent transition flex items-center justify-between gap-4">
+            What if you find something wrong?
+            <svg class="w-5 h-5 text-brand-muted flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-5 text-brand-muted text-sm leading-relaxed border-t border-slate-100 pt-4">
+            No pressure sales. We give you the written report and a written estimate for any work needed - then the decision is entirely yours. We're not in the habit of manufacturing urgency or inflating issues. If something is minor and can wait, we'll say so. If something genuinely needs attention soon, we'll explain why clearly.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-brand-navy">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="w-16 h-16 bg-brand-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+        <svg class="w-8 h-8 text-brand-accent-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Book Your Free Inspection
+      </h2>
+      <p class="text-white/70 text-lg mb-10 max-w-xl mx-auto">
+        One call is all it takes. We'll schedule a time that works for you, inspect the roof thoroughly, and deliver a written report the same day.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={`tel:${SITE.phones.hillCountryTel}`}
+          class="inline-flex items-center justify-center gap-3 bg-brand-accent hover:bg-brand-accent-light text-white text-xl font-bold px-10 py-5 rounded-xl transition shadow-xl shadow-brand-accent/25"
+        >
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Hill Country: {SITE.phones.hillCountry}
+        </a>
+        <a
+          href={`tel:${SITE.phones.austinTel}`}
+          class="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 border border-white/30 text-white text-xl font-bold px-10 py-5 rounded-xl transition"
+        >
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Austin: {SITE.phones.austin}
+        </a>
+      </div>
+
+      <p class="mt-6 text-white/40 text-sm">Free inspection &middot; Written report included &middot; No sales pressure</p>
+    </div>
+  </section>
+
+</BaseLayout>

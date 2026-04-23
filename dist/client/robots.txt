@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://top-roofers.pages.dev/sitemap-index.xml

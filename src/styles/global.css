@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
-/* Brand colors */
+/* Red Roan Construction brand tokens */
 @theme {
-  --color-brand-navy: #0f172a;
-  --color-brand-dark: #1e293b;
-  --color-brand-slate: #334155;
-  --color-brand-accent: #f59e0b;
-  --color-brand-accent-light: #fbbf24;
-  --color-brand-light: #f8fafc;
-  --color-brand-muted: #94a3b8;
+  --color-brand-navy: #1a2744;
+  --color-brand-dark: #111c33;
+  --color-brand-slate: #2d3f6b;
+  --color-brand-accent: #a6442e;
+  --color-brand-accent-light: #c2553d;
+  --color-brand-light: #fafaf8;
+  --color-brand-muted: #6b7280;
   --color-brand-success: #22c55e;
-  --color-brand-star: #facc15;
+  --color-brand-warm: #f5f0eb;
 }

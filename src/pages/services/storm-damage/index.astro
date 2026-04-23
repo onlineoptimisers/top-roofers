@@ -1,0 +1,516 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE } from '../../../data/site';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Storm Damage Roof Repair',
+  description: 'Hail and wind damage assessment, insurance claim support, emergency tarping and repair for Texas homeowners.',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: SITE.name,
+    telephone: [SITE.phones.hillCountry, SITE.phones.austin],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: SITE.address.city,
+      addressRegion: SITE.address.state,
+      addressCountry: 'US',
+    },
+    areaServed: SITE.address.serviceArea,
+    url: SITE.url,
+  },
+  serviceType: 'Storm Damage Roof Repair',
+  areaServed: SITE.address.serviceArea,
+};
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'RoofingContractor',
+  name: SITE.name,
+  description: SITE.description,
+  url: SITE.url,
+  telephone: [SITE.phones.hillCountry, SITE.phones.austin],
+  email: SITE.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: SITE.address.city,
+    addressRegion: SITE.address.state,
+    addressCountry: 'US',
+  },
+  areaServed: SITE.address.serviceArea,
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Roofing Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Storm Damage Inspection' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Insurance Claim Documentation' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Emergency Tarping' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Hail and Wind Damage Repair' } },
+    ],
+  },
+};
+---
+
+<BaseLayout
+  title="Storm Damage Roof Repair Texas | Red Roan Construction"
+  description="Hail and wind damage assessment, insurance claim support, emergency tarping. Serving Hill Country & Austin. (830) 388-1502 or (512) 779-0037."
+  schema={[serviceSchema, localBusinessSchema]}
+  canonical={`${SITE.url}/services/storm-damage/`}
+>
+
+  <!-- Hero -->
+  <section class="bg-brand-navy text-white py-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><path d=%22M30 0L60 30L30 60L0 30Z%22 fill=%22none%22 stroke=%22white%22 stroke-width=%221%22/></svg>'); background-size: 60px 60px;"></div>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+      <!-- Urgent badge -->
+      <div class="inline-flex items-center gap-2 bg-brand-accent/20 border border-brand-accent/40 text-brand-accent-light rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+        </svg>
+        Emergency Response Available
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-bold mb-5 leading-tight">
+        Storm Hit Your Roof?<br />
+        <span class="text-brand-accent-light">We Can Help.</span>
+      </h1>
+      <p class="text-lg text-white/75 max-w-2xl mx-auto mb-10">
+        Fast response, insurance claim experience, and honest assessments.
+        Don't wait for a leak to find out you have damage.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={`tel:${SITE.phones.hillCountryTel}`}
+          class="inline-flex items-center justify-center gap-3 bg-brand-accent hover:bg-brand-accent-light text-white text-lg font-bold px-8 py-4 rounded-xl transition shadow-lg shadow-brand-accent/30"
+        >
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Hill Country: {SITE.phones.hillCountry}
+        </a>
+        <a
+          href={`tel:${SITE.phones.austinTel}`}
+          class="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 border border-white/30 text-white text-lg font-bold px-8 py-4 rounded-xl transition"
+        >
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Austin: {SITE.phones.austin}
+        </a>
+      </div>
+
+      <p class="mt-6 text-white/50 text-sm">Free inspection &middot; No obligation &middot; {SITE.warranty}</p>
+    </div>
+  </section>
+
+  <!-- Signs of Storm Damage -->
+  <section class="py-20 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-brand-navy mb-4">Signs Your Roof Has Storm Damage</h2>
+        <p class="text-brand-muted max-w-2xl mx-auto">
+          Many homeowners don't realise they have damage until a leak appears months later. Texas hail and wind storms can cause serious damage that isn't visible from the ground. Here's what to look for.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Dented/cracked shingles -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-brand-accent/40 hover:shadow-md transition-all">
+          <div class="w-12 h-12 bg-brand-accent/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-brand-navy text-lg mb-2">Dented or Cracked Shingles</h3>
+          <p class="text-brand-muted text-sm leading-relaxed">
+            Hailstones leave circular dents or bruising on asphalt shingles. Cracks and splits expose the underlying material to moisture and UV, accelerating deterioration.
+          </p>
+        </div>
+
+        <!-- Granule loss -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-brand-accent/40 hover:shadow-md transition-all">
+          <div class="w-12 h-12 bg-brand-accent/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-brand-navy text-lg mb-2">Granule Loss in Gutters</h3>
+          <p class="text-brand-muted text-sm leading-relaxed">
+            After a storm, check your gutters and downspout outlets. Heavy granule deposits are a tell-tale sign that hail has knocked the protective coating off your shingles.
+          </p>
+        </div>
+
+        <!-- Dented metal flashings -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-brand-accent/40 hover:shadow-md transition-all">
+          <div class="w-12 h-12 bg-brand-accent/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-brand-navy text-lg mb-2">Dented Metal Flashings</h3>
+          <p class="text-brand-muted text-sm leading-relaxed">
+            Flashings around chimneys, vents, and skylights are especially vulnerable. Dents and displaced flashings create gaps where water can enter, even if shingles look intact.
+          </p>
+        </div>
+
+        <!-- Leaks or water stains -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-brand-accent/40 hover:shadow-md transition-all">
+          <div class="w-12 h-12 bg-brand-accent/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-brand-navy text-lg mb-2">Leaks or Water Stains</h3>
+          <p class="text-brand-muted text-sm leading-relaxed">
+            Brown staining on ceilings or walls, drips during rain, or damp insulation in the attic all indicate water is getting in. By the time you see stains, damage is already progressing.
+          </p>
+        </div>
+
+        <!-- Visible daylight through attic -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-brand-accent/40 hover:shadow-md transition-all">
+          <div class="w-12 h-12 bg-brand-accent/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-brand-navy text-lg mb-2">Visible Daylight Through Attic</h3>
+          <p class="text-brand-muted text-sm leading-relaxed">
+            Go into your attic on a sunny day. If you can see light coming through the decking, you have holes or gaps that need immediate attention before the next rain hits.
+          </p>
+        </div>
+
+        <!-- Sagging sections -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-brand-accent/40 hover:shadow-md transition-all">
+          <div class="w-12 h-12 bg-brand-accent/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M3 12h18M5 8l7 8 7-8" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-brand-navy text-lg mb-2">Sagging Sections</h3>
+          <p class="text-brand-muted text-sm leading-relaxed">
+            Visible dips or sags in the roofline indicate structural damage to the decking or rafters. This is urgent. Prolonged water saturation weakens the structure and puts the roof at risk of collapse.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Storm Damage Process -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl font-bold text-brand-navy mb-4">Our Storm Damage Process</h2>
+        <p class="text-brand-muted">
+          We handle everything from the first call to the final repair. No runaround, no delays, no surprises.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <!-- Step 1 -->
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-brand-accent rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brand-accent/25">1</div>
+          <div class="bg-brand-light rounded-2xl p-5 flex-1 border border-slate-100">
+            <div class="flex items-center gap-3 mb-2">
+              <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <h3 class="font-bold text-brand-navy text-lg">Emergency Inspection</h3>
+            </div>
+            <p class="text-brand-muted text-sm leading-relaxed">
+              We come out fast. Call us after the storm and we'll schedule an inspection as soon as possible - often the same day or next morning. You won't be waiting weeks for someone to show up.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-brand-accent rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brand-accent/25">2</div>
+          <div class="bg-brand-light rounded-2xl p-5 flex-1 border border-slate-100">
+            <div class="flex items-center gap-3 mb-2">
+              <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                <path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <h3 class="font-bold text-brand-navy text-lg">Full Photo Documentation</h3>
+            </div>
+            <p class="text-brand-muted text-sm leading-relaxed">
+              We photograph every area of damage - shingles, flashings, gutters, ridge, valleys, decking, and attic if accessible. Every photo is timestamped. Nothing gets missed.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-brand-accent rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brand-accent/25">3</div>
+          <div class="bg-brand-light rounded-2xl p-5 flex-1 border border-slate-100">
+            <div class="flex items-center gap-3 mb-2">
+              <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <h3 class="font-bold text-brand-navy text-lg">Detailed Written Report</h3>
+            </div>
+            <p class="text-brand-muted text-sm leading-relaxed">
+              You receive a comprehensive written report documenting all damage found. This is what your insurer needs to process your claim. We write it so adjusters can clearly understand the scope and severity.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-brand-accent rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brand-accent/25">4</div>
+          <div class="bg-brand-light rounded-2xl p-5 flex-1 border border-slate-100">
+            <div class="flex items-center gap-3 mb-2">
+              <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <h3 class="font-bold text-brand-navy text-lg">We Work With Your Adjuster</h3>
+            </div>
+            <p class="text-brand-muted text-sm leading-relaxed">
+              We can meet your insurance adjuster on-site and walk them through the damage directly. We know what adjusters look for and how to make sure nothing legitimate is overlooked on your claim.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-brand-accent rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brand-accent/25">5</div>
+          <div class="bg-brand-light rounded-2xl p-5 flex-1 border border-slate-100">
+            <div class="flex items-center gap-3 mb-2">
+              <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+              <h3 class="font-bold text-brand-navy text-lg">Repair or Replacement with Workmanship Warranty</h3>
+            </div>
+            <p class="text-brand-muted text-sm leading-relaxed">
+              Once your claim is approved, we complete the repair or full replacement. All work is backed by our {SITE.warranty}. We use quality materials and leave your property clean.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Insurance Guidance -->
+  <section class="py-20 bg-brand-warm">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-brand-navy mb-5">Do I Need to File an Insurance Claim?</h2>
+          <p class="text-brand-muted mb-5 leading-relaxed">
+            Most standard Texas homeowner policies cover hail and wind damage. If your roof was damaged in a qualifying storm event, repairs or replacement are likely covered subject to your deductible.
+          </p>
+          <p class="text-brand-muted mb-5 leading-relaxed">
+            We've helped dozens of Hill Country and Austin homeowners navigate the claims process successfully. We know what documentation insurers require and how to present it clearly.
+          </p>
+          <div class="bg-white rounded-2xl p-5 border-l-4 border-brand-accent">
+            <p class="text-brand-navy font-semibold leading-relaxed">
+              "If your roof was damaged in a storm, call us before you call your insurer. We'll help you document it properly - so you have the best possible chance of a full payout."
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-white rounded-xl p-4 flex gap-4 items-start shadow-sm">
+            <div class="w-8 h-8 bg-brand-success/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-brand-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-brand-navy text-sm">Hail and wind coverage is standard</p>
+              <p class="text-brand-muted text-xs mt-1">Most Texas homeowner policies include it by default.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-4 flex gap-4 items-start shadow-sm">
+            <div class="w-8 h-8 bg-brand-success/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-brand-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-brand-navy text-sm">Documentation is everything</p>
+              <p class="text-brand-muted text-xs mt-1">Weak documentation means a lower payout or denial. We make sure yours is complete.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-4 flex gap-4 items-start shadow-sm">
+            <div class="w-8 h-8 bg-brand-success/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-brand-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-brand-navy text-sm">No cost to have us inspect first</p>
+              <p class="text-brand-muted text-xs mt-1">Our storm inspection is free. You only proceed if it makes sense for your situation.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-4 flex gap-4 items-start shadow-sm">
+            <div class="w-8 h-8 bg-brand-success/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-brand-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-brand-navy text-sm">We're honest about what's claimable</p>
+              <p class="text-brand-muted text-xs mt-1">We'll tell you upfront whether what we find is worth pursuing a claim for.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Red Roan -->
+  <section class="py-20 bg-brand-navy text-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl font-bold mb-4">Why Choose Red Roan for Storm Damage?</h2>
+        <p class="text-white/60 max-w-xl mx-auto">
+          After a storm, out-of-state contractors flood into Texas looking for quick work. We're different - and the difference matters.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition">
+          <div class="w-12 h-12 bg-brand-accent/20 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-brand-accent-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2">Local, Not Storm Chasers</h3>
+          <p class="text-white/60 text-sm leading-relaxed">
+            We're based in Central Texas. We'll be here after your roof is repaired, and we're accountable to our community - not just passing through after a storm event.
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition">
+          <div class="w-12 h-12 bg-brand-accent/20 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-brand-accent-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2">Insurance Claim Experience</h3>
+          <p class="text-white/60 text-sm leading-relaxed">
+            We've navigated dozens of Texas hail and wind claims. We know the process, we know what insurers require, and we help you get a fair outcome.
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition">
+          <div class="w-12 h-12 bg-brand-accent/20 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-brand-accent-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2">Honest About Coverage</h3>
+          <p class="text-white/60 text-sm leading-relaxed">
+            We'll tell you what's storm damage and what's normal wear. We won't push you to file a claim that isn't worth filing - your long-term interests matter more to us than a quick job.
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition">
+          <div class="w-12 h-12 bg-brand-accent/20 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-brand-accent-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2">{SITE.warranty}</h3>
+          <p class="text-white/60 text-sm leading-relaxed">
+            Every repair and replacement comes with our 5-year workmanship warranty. If something fails due to our work, we come back and fix it. No charge, no argument.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-brand-light">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-brand-navy mb-4">Common Questions</h2>
+        <p class="text-brand-muted">Questions we get from homeowners after a storm.</p>
+      </div>
+
+      <div class="space-y-4">
+        <details class="bg-white rounded-2xl border border-slate-200 overflow-hidden group" open>
+          <summary class="px-6 py-5 cursor-pointer font-semibold text-brand-navy hover:text-brand-accent transition flex items-center justify-between gap-4">
+            How long do I have to file a storm damage claim?
+            <svg class="w-5 h-5 text-brand-muted flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-5 text-brand-muted text-sm leading-relaxed border-t border-slate-100 pt-4">
+            In Texas, most homeowner policies allow one year from the date of the storm to file a claim. Some policies are shorter. Check your policy documents or call your insurer to confirm. If you're not sure, get your roof inspected now so you have documentation in hand before any deadline.
+          </div>
+        </details>
+
+        <details class="bg-white rounded-2xl border border-slate-200 overflow-hidden group">
+          <summary class="px-6 py-5 cursor-pointer font-semibold text-brand-navy hover:text-brand-accent transition flex items-center justify-between gap-4">
+            Will filing a claim increase my premiums?
+            <svg class="w-5 h-5 text-brand-muted flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-5 text-brand-muted text-sm leading-relaxed border-t border-slate-100 pt-4">
+            It depends on your insurer and how many claims you've filed previously. In Texas, a single weather-related claim typically does not trigger a rate increase - weather events are considered external factors, not personal risk. That said, policies vary. We can talk through the tradeoffs when we inspect your roof.
+          </div>
+        </details>
+
+        <details class="bg-white rounded-2xl border border-slate-200 overflow-hidden group">
+          <summary class="px-6 py-5 cursor-pointer font-semibold text-brand-navy hover:text-brand-accent transition flex items-center justify-between gap-4">
+            What if my insurance doesn't cover all the damage?
+            <svg class="w-5 h-5 text-brand-muted flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-5 text-brand-muted text-sm leading-relaxed border-t border-slate-100 pt-4">
+            We'll give you honest options. If the insurance payout covers the bulk of the work, we'll discuss what a reasonable out-of-pocket amount looks like for the remainder. If the payout falls well short of fair, we can advise on whether appealing the adjustment is worth it. We won't pressure you into anything.
+          </div>
+        </details>
+
+        <details class="bg-white rounded-2xl border border-slate-200 overflow-hidden group">
+          <summary class="px-6 py-5 cursor-pointer font-semibold text-brand-navy hover:text-brand-accent transition flex items-center justify-between gap-4">
+            Do I need to be home during the inspection?
+            <svg class="w-5 h-5 text-brand-muted flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-5 text-brand-muted text-sm leading-relaxed border-t border-slate-100 pt-4">
+            Not required, but we'd recommend it. If you're home we can walk you through what we find on the spot and answer your questions directly. If you can't be there, we'll send you our photo report and follow up with a call to go through the findings.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Urgent CTA -->
+  <section class="py-20 bg-brand-accent">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Call Now for a Free Storm Damage Inspection
+      </h2>
+      <p class="text-white/80 text-lg mb-10 max-w-xl mx-auto">
+        Don't wait for the next rainstorm to find out whether your roof has damage. We'll inspect it, document it, and tell you exactly where things stand.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={`tel:${SITE.phones.hillCountryTel}`}
+          class="inline-flex items-center justify-center gap-3 bg-brand-navy hover:bg-brand-dark text-white text-xl font-bold px-10 py-5 rounded-xl transition shadow-xl"
+        >
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Hill Country: {SITE.phones.hillCountry}
+        </a>
+        <a
+          href={`tel:${SITE.phones.austinTel}`}
+          class="inline-flex items-center justify-center gap-3 bg-white/15 hover:bg-white/25 border border-white/30 text-white text-xl font-bold px-10 py-5 rounded-xl transition"
+        >
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Austin: {SITE.phones.austin}
+        </a>
+      </div>
+
+      <p class="mt-6 text-white/60 text-sm">Free inspection &middot; No pressure &middot; {SITE.warranty}</p>
+    </div>
+  </section>
+
+</BaseLayout>

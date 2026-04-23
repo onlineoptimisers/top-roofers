@@ -1,67 +1,92 @@
 ---
-interface Props {
-  city?: string;
-  state?: string;
-}
-
-const { city, state } = Astro.props;
+// No props required — standalone contact form
 ---
 
-<div class="bg-gradient-to-r from-brand-navy to-brand-dark rounded-xl p-6 md:p-8 mt-8">
-  <div class="grid md:grid-cols-2 gap-8 items-center">
-    <div class="text-white">
-      <h2 class="text-xl font-bold mb-2">Get Quotes From Roofers{city ? ` in ${city}` : ''}</h2>
-      <p class="text-sm text-slate-300 mb-4">Tell us about your project and we'll connect you with top-rated contractors in your area. No obligation, no cost to you.</p>
-      <ul class="space-y-2 text-sm text-slate-300">
-        <li class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7" /></svg>
-          Matched with verified local roofers
-        </li>
-        <li class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7" /></svg>
-          No cost, no obligation
-        </li>
-        <li class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7" /></svg>
-          Response within 24 hours
-        </li>
-      </ul>
+<div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 md:p-8">
+  <div class="mb-6">
+    <h2 class="text-2xl font-bold text-[#1a2744] mb-1">Get a Free Quote</h2>
+    <p class="text-sm text-[#6b7280]">Tell us about your roof and we'll get back to you within 24 hours.</p>
+  </div>
+
+  <form action="#" method="post" class="flex flex-col gap-4">
+
+    <!-- Name -->
+    <div class="flex flex-col gap-1">
+      <label for="qf-name" class="text-sm font-semibold text-[#1a2744]">Name</label>
+      <input
+        id="qf-name"
+        type="text"
+        name="name"
+        placeholder="Your full name"
+        required
+        class="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm text-[#1a2744] placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-[#a6442e] focus:border-transparent transition"
+      />
     </div>
 
-    <form id="quote-form" class="space-y-3">
-      <input type="text" name="name" placeholder="Your name" required class="w-full rounded-lg px-4 py-3 text-brand-navy text-sm outline-none focus:ring-2 focus:ring-brand-accent" />
-      <input type="tel" name="phone" placeholder="Phone number" required class="w-full rounded-lg px-4 py-3 text-brand-navy text-sm outline-none focus:ring-2 focus:ring-brand-accent" />
-      <input type="text" name="zip" placeholder="Zip code" required class="w-full rounded-lg px-4 py-3 text-brand-navy text-sm outline-none focus:ring-2 focus:ring-brand-accent" />
-      <select name="project" class="w-full rounded-lg px-4 py-3 text-brand-navy text-sm outline-none focus:ring-2 focus:ring-brand-accent">
-        <option value="">Project type...</option>
-        <option value="replacement">Full Roof Replacement</option>
-        <option value="repair">Roof Repair</option>
-        <option value="inspection">Roof Inspection</option>
-        <option value="storm">Storm Damage</option>
-        <option value="commercial">Commercial Roofing</option>
+    <!-- Phone -->
+    <div class="flex flex-col gap-1">
+      <label for="qf-phone" class="text-sm font-semibold text-[#1a2744]">Phone</label>
+      <input
+        id="qf-phone"
+        type="tel"
+        name="phone"
+        placeholder="(000) 000-0000"
+        required
+        class="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm text-[#1a2744] placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-[#a6442e] focus:border-transparent transition"
+      />
+    </div>
+
+    <!-- Email -->
+    <div class="flex flex-col gap-1">
+      <label for="qf-email" class="text-sm font-semibold text-[#1a2744]">Email</label>
+      <input
+        id="qf-email"
+        type="email"
+        name="email"
+        placeholder="you@example.com"
+        required
+        class="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm text-[#1a2744] placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-[#a6442e] focus:border-transparent transition"
+      />
+    </div>
+
+    <!-- Service -->
+    <div class="flex flex-col gap-1">
+      <label for="qf-service" class="text-sm font-semibold text-[#1a2744]">Service</label>
+      <select
+        id="qf-service"
+        name="service"
+        required
+        class="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm text-[#1a2744] outline-none focus:ring-2 focus:ring-[#a6442e] focus:border-transparent transition bg-white"
+      >
+        <option value="" disabled selected>Select a service...</option>
+        <option value="roof-replacement">Roof Replacement</option>
+        <option value="storm-damage">Storm Damage</option>
+        <option value="roof-repair">Roof Repair</option>
+        <option value="inspection">Inspection</option>
         <option value="other">Other</option>
       </select>
-      <input type="hidden" name="city" value={city || ''} />
-      <input type="hidden" name="state" value={state || ''} />
-      <button type="submit" class="w-full bg-brand-accent text-brand-navy py-3 rounded-lg font-semibold hover:bg-brand-accent-light transition">
-        Get My Quotes
-      </button>
-    </form>
-
-    <div id="quote-success" class="hidden text-center text-white py-4">
-      <svg class="w-12 h-12 text-brand-accent mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-      <p class="font-semibold text-lg">Quote Request Submitted!</p>
-      <p class="text-sm text-slate-300 mt-1">We'll match you with local roofers within 24 hours.</p>
     </div>
-  </div>
-</div>
 
-<script>
-  const form = document.getElementById('quote-form');
-  const success = document.getElementById('quote-success');
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    form.classList.add('hidden');
-    success?.classList.remove('hidden');
-  });
-</script>
+    <!-- Message -->
+    <div class="flex flex-col gap-1">
+      <label for="qf-message" class="text-sm font-semibold text-[#1a2744]">Message <span class="font-normal text-[#6b7280]">(optional)</span></label>
+      <textarea
+        id="qf-message"
+        name="message"
+        rows="4"
+        placeholder="Describe your project or any questions you have..."
+        class="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm text-[#1a2744] placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-[#a6442e] focus:border-transparent transition resize-none"
+      ></textarea>
+    </div>
+
+    <!-- Submit -->
+    <button
+      type="submit"
+      class="w-full rounded-lg px-6 py-3.5 text-sm font-bold text-white transition hover:opacity-90 active:scale-[0.98]"
+      style="background-color: #a6442e;"
+    >
+      Get Free Quote
+    </button>
+
+  </form>
+</div>

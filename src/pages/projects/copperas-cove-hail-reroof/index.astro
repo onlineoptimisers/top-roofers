@@ -1,0 +1,254 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE } from '../../../data/site';
+
+const title = 'Copperas Cove Hail Replacement | Red Roan Construction';
+const description = 'Full 2,400 sq ft roof replacement after a Bell County hailstorm. GAF Timberline HDZ Charcoal. Insurance claim handled start to finish — zero out-of-pocket.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  author: { '@type': 'Organization', name: SITE.name },
+  publisher: { '@type': 'Organization', name: SITE.name },
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+
+  <!-- Hero -->
+  <section class="bg-brand-navy text-white py-16 md:py-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-15">
+      <img
+        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=60&auto=format&fit=crop"
+        alt=""
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/90 to-transparent"></div>
+    <div class="relative max-w-7xl mx-auto px-4">
+      <nav class="flex items-center gap-2 text-white/50 text-sm mb-6">
+        <a href="/" class="hover:text-white transition">Home</a>
+        <span>/</span>
+        <a href="/projects/" class="hover:text-white transition">Projects</a>
+        <span>/</span>
+        <span class="text-white/80">Copperas Cove Hail Replacement</span>
+      </nav>
+      <p class="text-brand-accent font-semibold text-sm tracking-widest uppercase mb-3">Asphalt Shingle · Storm Damage</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 max-w-2xl">
+        Copperas Cove Hail Replacement
+      </h1>
+      <p class="text-white/70 text-lg max-w-xl mb-8">
+        Bell County hailstorm. 2,400 sq ft. Full replacement. State Farm approved. Zero out-of-pocket for the homeowner.
+      </p>
+      <!-- Stats row -->
+      <div class="flex flex-wrap gap-6">
+        {[
+          { label: 'Square Footage', value: '2,400 sq ft' },
+          { label: 'Material', value: 'GAF Timberline HDZ' },
+          { label: 'Duration', value: '1.5 days' },
+          { label: 'Completed', value: 'March 2025' },
+          { label: 'Out-of-Pocket', value: '$0' },
+        ].map(stat => (
+          <div class="bg-white/10 rounded-lg px-4 py-3 min-w-[120px]">
+            <p class="text-white/50 text-xs uppercase tracking-wide mb-1">{stat.label}</p>
+            <p class="text-white font-bold text-sm">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <article class="bg-brand-light">
+    <div class="max-w-4xl mx-auto px-4 py-14 md:py-20">
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden shadow-md mb-12">
+        <img
+          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop"
+          alt="Roofing crew completing hail replacement in Copperas Cove TX"
+          class="w-full h-80 md:h-[480px] object-cover"
+          loading="eager"
+        />
+      </div>
+
+      <!-- Problem narrative -->
+      <section class="mb-12">
+        <p class="text-brand-accent font-semibold text-sm tracking-widest uppercase mb-3">The Situation</p>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-brand-navy mb-6">The storm left more damage than it looked like</h2>
+
+        <div class="prose prose-lg max-w-none text-slate-600 space-y-5">
+          <p>
+            In late February 2025, a hailstorm swept through Bell County dropping stones between three-quarters and one inch in diameter across Copperas Cove. Mark had been through enough Texas weather to know that hail like that usually meant roof trouble, but the damage wasn't obvious from the ground. The shingles looked mostly intact. What he noticed was different: a slow drip in the corner of his attic about a week after the storm, and a line of granules that had washed into the gutters.
+          </p>
+          <p>
+            He called Red Roan for a free inspection. We were on site within two days. What looked minor from street level told a different story up on the roof. Across three slopes, we documented 47 impact points where hailstones had struck hard enough to fracture the shingle mat beneath the surface granules. That kind of damage doesn't show up as missing shingles or obvious holes — it shows up as water intrusion six months later, when the damaged spots finally let moisture through.
+          </p>
+          <p>
+            We photographed each impact point, measured the hail spatter pattern, and prepared a full inspection report for Mark's State Farm claim. At that point, we'd done our job whether he used us for the replacement or not. But the documentation we put together was what made the claim work.
+          </p>
+        </div>
+      </section>
+
+      <!-- Process photos row -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+        <div class="rounded-lg overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop"
+            alt="Hail damage inspection - impact points documented"
+            class="w-full h-52 object-cover hover:scale-105 transition duration-300"
+            loading="lazy"
+          />
+          <p class="text-xs text-slate-400 mt-2 px-1">Inspection: 47 impact points across 3 slopes</p>
+        </div>
+        <div class="rounded-lg overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&auto=format&fit=crop"
+            alt="Tear-off and deck inspection before new shingles"
+            class="w-full h-52 object-cover hover:scale-105 transition duration-300"
+            loading="lazy"
+          />
+          <p class="text-xs text-slate-400 mt-2 px-1">Full tear-off, day one — deck inspected before underlayment</p>
+        </div>
+        <div class="rounded-lg overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80&auto=format&fit=crop"
+            alt="Completed GAF Timberline HDZ Charcoal installation"
+            class="w-full h-52 object-cover hover:scale-105 transition duration-300"
+            loading="lazy"
+          />
+          <p class="text-xs text-slate-400 mt-2 px-1">Finished — GAF Timberline HDZ Charcoal, day two</p>
+        </div>
+      </div>
+
+      <!-- Solution narrative -->
+      <section class="mb-12">
+        <p class="text-brand-accent font-semibold text-sm tracking-widest uppercase mb-3">What We Did</p>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-brand-navy mb-6">Full replacement, done in a day and a half</h2>
+
+        <div class="prose prose-lg max-w-none text-slate-600 space-y-5">
+          <p>
+            State Farm approved the claim for a full replacement within two weeks of our inspection report being submitted. Mark called us back to do the work. We scheduled him for a Monday start.
+          </p>
+          <p>
+            Day one: full tear-off. We stripped the entire 2,400 square feet down to the decking and walked every sheet of plywood before laying anything new. One 4x8 section near the valley on the north slope had started to soften from the attic moisture — we replaced it. Ice and water shield went across all eaves and valleys before synthetic underlayment covered the field. Everything was papered and ready before the crew left that afternoon.
+          </p>
+          <p>
+            Day two: shingles. We installed GAF Timberline HDZ in Charcoal using a 6-nail fastening pattern rather than the standard 4-nail — this matters in Central Texas, where straight-line wind events are common and a properly nailed roof holds up significantly better in high wind. All pipe boots, plumbing vents, and ridge cap were replaced with new material. Ridge vent was installed continuously along the peak to keep attic temps down in summer. Cleanup was done by mid-afternoon and we did a final magnetic sweep of the yard and driveway before leaving.
+          </p>
+          <p>
+            Mark walked the finished job with our crew lead before we packed out. His out-of-pocket cost after the approved claim was zero.
+          </p>
+        </div>
+      </section>
+
+      <!-- Specs box + Testimonial side by side -->
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+
+        <!-- Specs -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8 shadow-sm">
+          <h3 class="text-lg font-bold text-brand-navy mb-6 flex items-center gap-2">
+            <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+            Project Specs
+          </h3>
+          <dl class="space-y-4">
+            {[
+              { label: 'Location', value: 'Copperas Cove, TX' },
+              { label: 'Completed', value: 'March 2025' },
+              { label: 'Square Footage', value: '2,400 sq ft' },
+              { label: 'Material', value: 'GAF Timberline HDZ — Charcoal' },
+              { label: 'Fastening', value: '6-nail pattern (high-wind rated)' },
+              { label: 'Underlayment', value: 'Synthetic + ice & water shield at eaves/valleys' },
+              { label: 'Duration', value: '1.5 days' },
+              { label: 'Insurance', value: 'State Farm — full replacement approved' },
+              { label: 'Homeowner Cost', value: '$0 (deductible only)' },
+              { label: 'Warranty', value: 'GAF lifetime + 5-yr workmanship' },
+            ].map(item => (
+              <div class="flex justify-between items-start gap-4 py-2 border-b border-slate-100 last:border-0">
+                <dt class="text-slate-500 text-sm flex-shrink-0">{item.label}</dt>
+                <dd class="text-brand-navy font-semibold text-sm text-right">{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <!-- Testimonial + outcome -->
+        <div class="flex flex-col gap-6">
+          <div class="bg-brand-navy text-white rounded-xl p-8">
+            <svg class="w-8 h-8 text-brand-accent mb-4 opacity-80" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.002.003zm9.124 0c0-.88-.23-1.618-.69-2.217-.326-.42-.77-.692-1.327-.817-.56-.124-1.074-.13-1.54-.022-.16-.94.09-1.95.75-3.016.66-1.066 1.516-1.867 2.56-2.403L18.49 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.97 1.68-1.24 2.69-.273 1-.345 2.04-.217 3.1.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.003.003z"/>
+            </svg>
+            <blockquote class="text-white/90 text-base leading-relaxed mb-4">
+              "Red Roan replaced our entire roof after a hailstorm. The crew was professional, the job was done in a day, and the cleanup was spotless. Highly recommend."
+            </blockquote>
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="font-bold text-white text-sm">Mark D.</p>
+                <p class="text-white/50 text-xs">Copperas Cove, TX</p>
+              </div>
+              <div class="flex gap-0.5 ml-auto">
+                {[1,2,3,4,5].map(() => (
+                  <svg class="w-4 h-4 text-brand-accent" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-brand-warm rounded-xl p-6">
+            <h3 class="font-bold text-brand-navy text-base mb-2">The outcome</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              New GAF Timberline HDZ roof with a lifetime material warranty and our 5-year workmanship guarantee. The attic leak is gone. The home is protected. Mark paid nothing beyond his deductible — the kind of result that comes from thorough documentation at the inspection stage.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related services -->
+      <section class="border-t border-slate-200 pt-10 mb-10">
+        <h3 class="text-lg font-bold text-brand-navy mb-5">Related Services</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {[
+            { href: '/services/storm-damage/', label: 'Storm Damage Repair', desc: 'Hail and wind damage assessment, insurance claim support, and emergency repairs.' },
+            { href: '/services/roof-replacement/', label: 'Roof Replacement', desc: 'Full asphalt shingle and metal roof replacement for residential properties.' },
+            { href: '/services/roof-inspection/', label: 'Free Roof Inspection', desc: 'Full documentation for insurance claims. No obligation.' },
+          ].map(s => (
+            <a href={s.href} class="bg-white border border-slate-200 rounded-lg p-5 hover:border-brand-accent hover:shadow-sm transition group">
+              <p class="font-semibold text-brand-navy text-sm group-hover:text-brand-accent transition mb-1">{s.label} →</p>
+              <p class="text-slate-500 text-sm leading-snug">{s.desc}</p>
+            </a>
+          ))}
+          <a href="/projects/" class="bg-white border border-slate-200 rounded-lg p-5 hover:border-brand-accent hover:shadow-sm transition group">
+            <p class="font-semibold text-brand-navy text-sm group-hover:text-brand-accent transition mb-1">All Projects →</p>
+            <p class="text-slate-500 text-sm leading-snug">Browse more completed roofing projects across Central Texas.</p>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </article>
+
+  <!-- CTA -->
+  <section class="bg-brand-navy py-16 text-center">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-3xl font-extrabold text-white mb-4">Had hail recently?</h2>
+      <p class="text-white/70 mb-8">
+        Most homeowners don't realize they have a valid insurance claim until we show them the impact points. Free inspection, full documentation — no obligation.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact/" class="bg-brand-accent text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition">
+          Book a Free Inspection
+        </a>
+        <a href={`tel:${SITE.phones.hillCountryTel}`} class="border border-white/30 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
+          Call {SITE.phones.hillCountry}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

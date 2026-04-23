@@ -1,0 +1,233 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE } from '../../../data/site';
+
+const title = 'San Marcos Commercial TPO Flat Roof | Red Roan Construction';
+const description = '4,200 sq ft commercial TPO membrane roof on a San Marcos TX auto parts building. Chronic ponding resolved with tapered insulation. 20-year system. Red Roan Construction.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: 'San Marcos Commercial Flat Roof - TPO Membrane Installation',
+  description: '4,200 sq ft commercial TPO membrane roof for an auto parts supplier in San Marcos TX. Resolved chronic ponding water with tapered insulation system. 60-mil mechanically fastened.',
+  locationCreated: {
+    '@type': 'Place',
+    name: 'San Marcos, TX',
+  },
+  dateCreated: '2024-12',
+  creator: {
+    '@type': 'RoofingContractor',
+    name: SITE.name,
+    telephone: SITE.phones.austinTel,
+    url: SITE.url,
+  },
+};
+
+const specs = [
+  '4,200 sq ft commercial building',
+  '60-mil TPO membrane, mechanically fastened',
+  'Tapered insulation - low corner drainage correction',
+  '180 sq ft rotten deck replaced',
+  '6 HVAC penetrations resealed and flashed',
+  '4-day install including deck repair',
+  'San Marcos, TX - December 2024',
+  '20-year expected service life',
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+
+  <!-- Hero -->
+  <section class="bg-brand-navy text-white py-16 md:py-24 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-15">
+      <img
+        src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1600&q=60&auto=format&fit=crop"
+        alt=""
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-navy/90 to-brand-navy/60"></div>
+    <div class="relative max-w-7xl mx-auto px-4">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-white/50 mb-6" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-white transition">Home</a>
+        <span>/</span>
+        <a href="/projects/" class="hover:text-white transition">Projects</a>
+        <span>/</span>
+        <span class="text-white/80">San Marcos Commercial Flat Roof</span>
+      </nav>
+      <p class="text-brand-accent font-semibold text-sm tracking-widest uppercase mb-3">Commercial Roofing</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">San Marcos Commercial Flat Roof</h1>
+      <p class="text-white/70 text-lg max-w-2xl">
+        4,200 sq ft TPO membrane installation on a San Marcos auto parts supplier. Three years of patch failures fixed with a properly engineered drainage solution and 60-mil TPO system.
+      </p>
+      <div class="mt-6 flex flex-wrap items-center gap-4 text-sm">
+        <span class="flex items-center gap-1.5 text-white/60">
+          <svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          San Marcos, TX
+        </span>
+        <span class="flex items-center gap-1.5 text-white/60">
+          <svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+          </svg>
+          December 2024
+        </span>
+        <span class="flex items-center gap-1.5 text-white/60">
+          <svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+          </svg>
+          4,200 sq ft
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Detail -->
+  <section class="py-16 md:py-24 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4">
+
+      <a href="/projects/" class="inline-flex items-center gap-2 text-brand-navy font-semibold text-sm mb-10 hover:text-brand-accent transition">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Projects
+      </a>
+
+      <div class="grid lg:grid-cols-5 gap-12 items-start">
+
+        <!-- Left: image -->
+        <div class="lg:col-span-3">
+          <img
+            src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80&auto=format&fit=crop"
+            alt="Commercial TPO flat roof installation San Marcos TX"
+            class="w-full h-80 md:h-[480px] object-cover rounded-xl shadow-md"
+            loading="eager"
+          />
+          <!-- Secondary images -->
+          <div class="grid grid-cols-2 gap-4 mt-4">
+            <img
+              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop"
+              alt="Commercial roofing deck repair San Marcos TX"
+              class="w-full h-44 object-cover rounded-lg"
+              loading="lazy"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800&q=80&auto=format&fit=crop"
+              alt="HVAC penetration flashing commercial roof"
+              class="w-full h-44 object-cover rounded-lg"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Right: story + specs -->
+        <div class="lg:col-span-2 space-y-8">
+
+          <!-- Story -->
+          <div>
+            <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-1 rounded-full mb-4">Commercial</span>
+            <h2 class="text-2xl font-extrabold text-brand-navy mb-4">The Story</h2>
+            <div class="space-y-4 text-slate-600 text-[15px] leading-relaxed">
+              <p>
+                This San Marcos auto parts supplier had been fighting the same roof for three years. A previous contractor had patched it four separate times. The patches held temporarily, then leaked again. The root cause was never addressed: a persistent ponding water problem in one corner of the building was accelerating the breakdown of the existing built-up roof system.
+              </p>
+              <p>
+                Red Roan started with a full deck assessment. We found what we expected in the problem corner - 180 sq ft of rotten decking that had been absorbing water for years. That came out first. Once the deck was clean, we understood exactly what the drainage issue was: the existing roof had no slope correction in that area, so water had nowhere to go after rain.
+              </p>
+              <p>
+                The fix was tapered polyisocyanurate insulation in the low corner, designed to redirect drainage toward the roof drain rather than let it sit. With the drainage solved, we installed a 60-mil TPO membrane, mechanically fastened across the full 4,200 sq ft. All six HVAC penetrations got new flashings - every one of them was a future leak in the old system.
+              </p>
+              <p>
+                Four days total including the deck repair. The building owner told us this is "the last roof we'll have to deal with for 20 years." Based on the system we put in, he is right.
+              </p>
+            </div>
+          </div>
+
+          <!-- Specs box -->
+          <div class="bg-white rounded-xl border border-slate-100 shadow-sm p-6">
+            <h3 class="text-lg font-bold text-brand-navy mb-4">Project Specs</h3>
+            <ul class="space-y-0">
+              {specs.map((spec) => (
+                <li class="flex items-start gap-3 py-2.5 border-b border-slate-50 last:border-0">
+                  <span class="mt-1.5 w-2.5 h-0.5 bg-brand-accent flex-shrink-0 inline-block rounded-full"></span>
+                  <span class="text-slate-700 text-sm">{spec}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Result callout -->
+          <div class="bg-brand-navy rounded-xl p-6 text-white">
+            <p class="text-sm font-semibold text-brand-accent uppercase tracking-widest mb-2">Outcome</p>
+            <p class="text-white/90 text-sm leading-relaxed">
+              Chronic ponding eliminated with tapered insulation. Rotten deck replaced. All penetrations resealed. Four-year patch cycle ended. Building owner expects no further roof expenditure for 20 years.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Why patches failed callout -->
+      <div class="mt-16 bg-white rounded-xl border border-slate-100 shadow-sm p-8 md:p-10">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="md:col-span-1">
+            <h3 class="text-xl font-extrabold text-brand-navy mb-2">Why the Patches Kept Failing</h3>
+            <p class="text-slate-500 text-sm">A pattern we see often on commercial flat roofs. Symptoms get treated, the root cause stays.</p>
+          </div>
+          <div class="md:col-span-2 grid sm:grid-cols-3 gap-6">
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mx-auto mb-3">
+                <svg class="w-6 h-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                </svg>
+              </div>
+              <h4 class="font-bold text-brand-navy text-sm mb-1">Standing water</h4>
+              <p class="text-slate-500 text-xs leading-relaxed">Ponding degrades membrane adhesion and accelerates delamination in built-up systems.</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center mx-auto mb-3">
+                <svg class="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
+              </div>
+              <h4 class="font-bold text-brand-navy text-sm mb-1">Rotten decking</h4>
+              <p class="text-slate-500 text-xs leading-relaxed">Wet deck means patches have no solid substrate. They fail fast and the water follows the same path.</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3">
+                <svg class="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M8 9l4-4 4 4m0 6l-4 4-4-4"/>
+                </svg>
+              </div>
+              <h4 class="font-bold text-brand-navy text-sm mb-1">Unfixed penetrations</h4>
+              <p class="text-slate-500 text-xs leading-relaxed">HVAC penetrations are the most common leak points on commercial flat roofs and are routinely skipped in patch jobs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-warm py-16">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-extrabold text-brand-navy mb-4">Commercial Flat Roof Problems?</h2>
+      <p class="text-slate-600 mb-8 text-lg">
+        If you have had the same area patched more than twice, you need an assessment not another patch. We will tell you exactly what is happening and what fixing it properly costs.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact/" class="bg-brand-accent text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition">
+          Request a Commercial Assessment
+        </a>
+        <a href={`tel:${SITE.phones.austinTel}`} class="border border-brand-navy/30 text-brand-navy px-8 py-3 rounded-lg font-semibold hover:bg-brand-navy hover:text-white transition">
+          Call Austin: {SITE.phones.austin}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

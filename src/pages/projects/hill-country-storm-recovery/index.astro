@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE } from '../../../data/site';
+
+const title = 'Lampasas Storm Recovery | Red Roan Construction';
+const description = 'Coordinated hail damage claim and full replacement for a Lampasas home and detached garage. 2,300 sq ft across two structures. Both Allstate claims approved. Completed in 2 days.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  author: { '@type': 'Organization', name: SITE.name },
+  publisher: { '@type': 'Organization', name: SITE.name },
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+
+  <!-- Hero -->
+  <section class="bg-brand-navy text-white py-16 md:py-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-15">
+      <img
+        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=60&auto=format&fit=crop"
+        alt=""
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/90 to-transparent"></div>
+    <div class="relative max-w-7xl mx-auto px-4">
+      <nav class="flex items-center gap-2 text-white/50 text-sm mb-6">
+        <a href="/" class="hover:text-white transition">Home</a>
+        <span>/</span>
+        <a href="/projects/" class="hover:text-white transition">Projects</a>
+        <span>/</span>
+        <span class="text-white/80">Lampasas Storm Recovery</span>
+      </nav>
+      <p class="text-brand-accent font-semibold text-sm tracking-widest uppercase mb-3">Storm Damage · Insurance Claim · Two Structures</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 max-w-2xl">
+        Lampasas Storm Recovery
+      </h1>
+      <p class="text-white/70 text-lg max-w-xl mb-8">
+        One storm. Two structures. One coordinated claim with Allstate. Both approved. Both replaced back-to-back by the same crew.
+      </p>
+      <!-- Stats row -->
+      <div class="flex flex-wrap gap-6">
+        {[
+          { label: 'Total Sq Footage', value: '2,300 sq ft' },
+          { label: 'Structures', value: '2 (house + garage)' },
+          { label: 'Material', value: 'OC Duration — Estate Gray' },
+          { label: 'Duration', value: '2 days' },
+          { label: 'Completed', value: 'May 2025' },
+          { label: 'Claims', value: 'Both approved' },
+        ].map(stat => (
+          <div class="bg-white/10 rounded-lg px-4 py-3 min-w-[120px]">
+            <p class="text-white/50 text-xs uppercase tracking-wide mb-1">{stat.label}</p>
+            <p class="text-white font-bold text-sm">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <article class="bg-brand-light">
+    <div class="max-w-4xl mx-auto px-4 py-14 md:py-20">
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden shadow-md mb-12">
+        <img
+          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80&auto=format&fit=crop"
+          alt="Residential roof and garage replacement after hailstorm, Lampasas TX"
+          class="w-full h-80 md:h-[480px] object-cover"
+          loading="eager"
+        />
+      </div>
+
+      <!-- Problem narrative -->
+      <section class="mb-12">
+        <p class="text-brand-accent font-semibold text-sm tracking-widest uppercase mb-3">The Situation</p>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-brand-navy mb-6">He knew the garage was damaged. He wasn't sure about the house.</h2>
+
+        <div class="prose prose-lg max-w-none text-slate-600 space-y-5">
+          <p>
+            A significant hail event moved through Lampasas County in late April 2025. James had watched it from his front porch — large stones, sustained cell, roughly twenty minutes of heavy hail across the property. The day after, he walked out to the detached garage and could see the damage clearly: dented ridge cap, granule streaks down the face of the shingles, and one corner of the garage roof where the surface mat had cracked through on impact. That one he was confident about.
+          </p>
+          <p>
+            The main house was less obvious. The shingles looked mostly intact from ground level. He wasn't sure if the storm had hit it the same way, or if the garage just happened to take the worst of it. He called Red Roan, he said, because he wanted someone to tell him the truth before he bothered with an insurance call that might go nowhere.
+          </p>
+          <p>
+            We inspected both structures the same afternoon. The garage had 30+ documented impact points. The main house, once we were up on it, had over 60 — more damage than the garage, just not as visible from the ground because the shingle color was darker and the impacts hadn't broken through the surface granules yet. Both roofs were also at end-of-life on age; the main house was 18 years old and the garage was original to the build, likely 22 years. The storm gave both a legitimate path to full replacement.
+          </p>
+          <p>
+            We prepared a combined inspection report covering both structures, documented on separate sections of the same claim package, and submitted to Allstate. The key to getting both approved in the same claim was making clear they were on the same property, affected by the same event, and that the age of both roofs made repair an unreasonable remediation — replacement was the appropriate outcome under the policy terms.
+          </p>
+        </div>
+      </section>
+
+      <!-- Process photos row -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+        <div class="rounded-lg overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&auto=format&fit=crop"
+            alt="Hail impact documentation main house roof Lampasas TX"
+            class="w-full h-52 object-cover hover:scale-105 transition duration-300"
+            loading="lazy"
+          />
+          <p class="text-xs text-slate-400 mt-2 px-1">Main house: 60+ impact points documented for Allstate claim</p>
+        </div>
+        <div class="rounded-lg overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop"
+            alt="Detached garage roof tear-off and replacement"
+            class="w-full h-52 object-cover hover:scale-105 transition duration-300"
+            loading="lazy"
+          />
+          <p class="text-xs text-slate-400 mt-2 px-1">Garage tear-off, day two — same crew carried straight from the house</p>
+        </div>
+        <div class="rounded-lg overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80&auto=format&fit=crop"
+            alt="Completed Owens Corning Duration Estate Gray shingle installation"
+            class="w-full h-52 object-cover hover:scale-105 transition duration-300"
+            loading="lazy"
+          />
+          <p class="text-xs text-slate-400 mt-2 px-1">Finished — OC Duration Estate Gray on both structures</p>
+        </div>
+      </div>
+
+      <!-- Solution narrative -->
+      <section class="mb-12">
+        <p class="text-brand-accent font-semibold text-sm tracking-widest uppercase mb-3">What We Did</p>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-brand-navy mb-6">Two structures. Two days. One coordinated job.</h2>
+
+        <div class="prose prose-lg max-w-none text-slate-600 space-y-5">
+          <p>
+            Allstate approved the full replacement claim for both structures about three weeks after submission. James called us the same day the approval came through.
+          </p>
+          <p>
+            We planned the job as a two-day sequential sequence: main house on day one, detached garage on day two. This minimised disruption to the property, allowed the same crew to carry their knowledge of the site straight from one structure to the next, and let us do a single coordinated cleanup at the end of day two rather than two separate teardowns.
+          </p>
+          <p>
+            Day one, main house: full tear-off of 1,900 square feet, deck inspection, replacement of two softened plywood sections near the north valley, synthetic underlayment across the field, ice and water shield at all eaves and valleys, Owens Corning Duration architectural shingles in Estate Gray installed with a 6-nail pattern. New pipe boots, vent covers, and ridge cap throughout. Ridge vent installed continuously along the peak.
+          </p>
+          <p>
+            Day two, detached garage: same process at the 400 square foot garage structure. Tear-off, deck inspection, full underlayment, matching Duration shingles and trim. The garage was straightforward — lower pitch, simpler geometry — and the crew had it wrapped up by early afternoon. Final cleanup of both structures was done the same day: full debris removal, magnetic sweep of both the main yard and the driveway approach to the garage.
+          </p>
+          <p>
+            James was home for the walkthrough on both days. He said afterward that having the same crew handle both jobs on consecutive days made the whole process feel like a single project rather than two separate ordeals. That was the point.
+          </p>
+        </div>
+      </section>
+
+      <!-- Specs box + Outcome -->
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+
+        <!-- Specs -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8 shadow-sm">
+          <h3 class="text-lg font-bold text-brand-navy mb-6 flex items-center gap-2">
+            <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+            Project Specs
+          </h3>
+          <dl class="space-y-4">
+            {[
+              { label: 'Location', value: 'Lampasas, TX' },
+              { label: 'Completed', value: 'May 2025' },
+              { label: 'Main House', value: '1,900 sq ft' },
+              { label: 'Detached Garage', value: '400 sq ft' },
+              { label: 'Total Area', value: '2,300 sq ft' },
+              { label: 'Material', value: 'Owens Corning Duration — Estate Gray' },
+              { label: 'Fastening', value: '6-nail pattern (high-wind rated)' },
+              { label: 'Underlayment', value: 'Synthetic + ice & water shield at eaves/valleys' },
+              { label: 'Duration', value: '2 days (structures sequenced)' },
+              { label: 'Insurance', value: 'Allstate — both structures approved' },
+              { label: 'Warranty', value: 'OC lifetime limited + 5-yr workmanship' },
+            ].map(item => (
+              <div class="flex justify-between items-start gap-4 py-2 border-b border-slate-100 last:border-0">
+                <dt class="text-slate-500 text-sm flex-shrink-0">{item.label}</dt>
+                <dd class="text-brand-navy font-semibold text-sm text-right">{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <!-- Outcome / insight -->
+        <div class="flex flex-col gap-6">
+          <div class="bg-brand-navy text-white rounded-xl p-8">
+            <h3 class="text-white font-bold text-base mb-4">Why both structures got approved</h3>
+            <p class="text-white/80 text-sm leading-relaxed mb-4">
+              Getting a second structure approved in the same claim is not automatic. The key is documentation that clearly ties both structures to the same weather event, with impact counts that support replacement over repair, and an age-of-roof analysis that shows repair would not restore the property to pre-storm condition.
+            </p>
+            <p class="text-white/60 text-sm">
+              Most contractors only look at the structure the homeowner calls about. We inspected both because we saw the storm track. That's the difference between a partial approval and a full one.
+            </p>
+          </div>
+
+          <div class="bg-brand-warm rounded-xl p-6">
+            <h3 class="font-bold text-brand-navy text-base mb-3">Key outcomes</h3>
+            <ul class="space-y-2 text-slate-600 text-sm">
+              {[
+                'Both structures replaced with matching materials — cohesive appearance',
+                'Coordinated two-day schedule eliminated second mobilisation cost',
+                'Single cleanup pass at end of day two',
+                'Both roofs on new 5-year workmanship warranty from the same job',
+                'Insurance handled start to finish — James reviewed and signed, nothing else',
+              ].map(point => (
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-brand-accent mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related services -->
+      <section class="border-t border-slate-200 pt-10 mb-10">
+        <h3 class="text-lg font-bold text-brand-navy mb-5">Related Services</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {[
+            { href: '/services/storm-damage/', label: 'Storm Damage Repair', desc: 'Hail and wind damage assessment, full insurance documentation, and replacement.' },
+            { href: '/services/roof-inspection/', label: 'Free Roof Inspection', desc: 'Free inspection with full impact documentation. Covers all structures on the property.' },
+            { href: '/services/roof-replacement/', label: 'Roof Replacement', desc: 'Full architectural shingle and metal roof replacement for residential properties.' },
+          ].map(s => (
+            <a href={s.href} class="bg-white border border-slate-200 rounded-lg p-5 hover:border-brand-accent hover:shadow-sm transition group">
+              <p class="font-semibold text-brand-navy text-sm group-hover:text-brand-accent transition mb-1">{s.label} →</p>
+              <p class="text-slate-500 text-sm leading-snug">{s.desc}</p>
+            </a>
+          ))}
+          <a href="/projects/" class="bg-white border border-slate-200 rounded-lg p-5 hover:border-brand-accent hover:shadow-sm transition group">
+            <p class="font-semibold text-brand-navy text-sm group-hover:text-brand-accent transition mb-1">All Projects →</p>
+            <p class="text-slate-500 text-sm leading-snug">Browse more completed roofing projects across Central Texas.</p>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </article>
+
+  <!-- CTA -->
+  <section class="bg-brand-navy py-16 text-center">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-3xl font-extrabold text-white mb-4">Have a garage, workshop, or second structure?</h2>
+      <p class="text-white/70 mb-8">
+        We inspect all structures on the property, not just the main house. Many homeowners leave a valid claim on the table because they only called about one building. We check everything.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact/" class="bg-brand-accent text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition">
+          Book a Free Inspection
+        </a>
+        <a href={`tel:${SITE.phones.hillCountryTel}`} class="border border-white/30 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
+          Call {SITE.phones.hillCountry}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
